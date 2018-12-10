@@ -11,8 +11,9 @@ public class Player_Controller : MonoBehaviour
 
     public float runSpeed = 7;
     public float jumpForce = 7;
-    public Transform GroundTrigger;
-
+    public Transform ground_trigger;
+    public Transform second_ground_trigger;
+    public bool needDrawLine = false;
 
     private const float _rightRotation = 0; //направление вправо и одновременно начальное направление
     private const float _leftRotation = 180;//направление влево
@@ -25,12 +26,22 @@ public class Player_Controller : MonoBehaviour
 
     float position_x_groundTriger
     {
-        get { return GroundTrigger.position.x; }
+        get { return ground_trigger.position.x; }
     }
 
     float position_y_groundTriger
     {
-        get { return GroundTrigger.position.y; }
+        get { return ground_trigger.position.y; }
+    }
+
+    float position_x_secondGroundTriger
+    {
+        get { return second_ground_trigger.position.x; }
+    }
+
+    float position_y_secondGroundTriger
+    {
+        get { return second_ground_trigger.position.y; }
     }
 
     bool _isPlayerRight;
@@ -45,17 +56,19 @@ public class Player_Controller : MonoBehaviour
 
     private void Update()
     {
-        if(moving && Is_Ground_Collision() && !Is_Front_Collision())//если двигается, есть земля, нет препятствий
+        if (moving && Is_Ground_Collision() && !Is_Front_Collision())//если двигается, есть земля, нет препятствий
         {
             _animation.Play("Run");
-        }else if(moving && !Is_Ground_Collision())//если двигается, нет земли
+        }
+        else if (moving && !Is_Ground_Collision())//если двигается, нет земли
         {
             _animation.Play("Jump");
         }
         else if (!moving && !Is_Ground_Collision())//если не двигается, нет земли
         {
             _animation.Play("Jump");
-        }else                                      
+        }
+        else
             _animation.Play("Idle");
 
     }
@@ -77,38 +90,18 @@ public class Player_Controller : MonoBehaviour
         else
         {
             moving = false;
-            //if (!Is_Ground_Collision())
-            //    _animation.Play("Jump");
-            //else
-            //    _animation.Play("Idle");
-
             return;
         }
 
-
-        //  print(Is_Front_Collision());
         if (!Is_Front_Collision())
         {
-            //_animation.SetInteger("Move", (int)Do.Run);
-            //if (Is_Ground_Collision())
-            //    _animation.Play("Run");
-            //else
-            //    _animation.Play("Jump");
             Vector2 vector = Vector2.right * ax;
             float direction = vector.x;
             Rb.velocity = new Vector2(direction * runSpeed, Rb.velocity.y);
         }
-        else
-        {
-            //if (!Is_Ground_Collision())
-            //    _animation.Play("Jump");
-            //else
-            //    _animation.Play("Idle");
-        }
-
-
     }
 
+    //поворот
     void Turn_Player(bool right)
     {
         if (right)
@@ -137,28 +130,27 @@ public class Player_Controller : MonoBehaviour
     bool Is_Front_Collision()
     {
         bool hitGround = false;
-        //var startOrigin = 0.5f;
-        //var startDirection = 0.6f;
-        //var originX = position_x_groundTriger;
-        //var directionX = _isPlayerRight ? position_x_groundTriger + 1f : position_x_groundTriger - 1f;
-
         var origin = new Vector2(position_x_groundTriger, position_y_groundTriger);
         var direction = _isPlayerRight ? Vector2.right : Vector2.left; //new Vector2(directionX, position_y_groundTriger);
-        var distance = 0.2f;
+        var distance = 0.1f;
 
         var defaultMask = LayerMask.GetMask("Default");
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, defaultMask);
-      //  Debug.DrawRay(origin, direction * distance, Color.blue);
+
+        if (needDrawLine)
+        {
+            Debug.DrawRay(origin, direction * distance, Color.red, 0.25f);
+        }
 
         if (hit.collider != null)
         {
             hitGround = true;
-            print(hit.collider.name);
+          //  print(hit.collider.name);
         }
         else
         {
             hitGround = false;
-            print("null obj of forward");
+          //  print("null obj of forward");
         }
         return hitGround;
     }
@@ -166,36 +158,30 @@ public class Player_Controller : MonoBehaviour
 
     bool Is_Ground_Collision()
     {
-        //cмотрим задевает ли наш сёркл колайдер что то кроме нас самих
-        //выявляем его позицию а затем радиус умноженный на два
-        //Collider2D[] colliders = Physics2D.OverlapCircleAll(GroundTrigger.transform.position, GroundTrigger.radius * 2);
-        //int temp = 0;
-        //foreach (var col in colliders)
-        //{
-        //    if (col.gameObject != gameObject)
-        //        temp++;
-        //}
-        //return temp > 0; //если больше нуля то тру
         bool hitGround = false;
-        var origin = new Vector2(position_x_groundTriger, position_y_groundTriger/* - 0.4f*/);
+        var origin = new Vector2(position_x_groundTriger, position_y_groundTriger);
+        var second_origin = new Vector2(position_x_secondGroundTriger, position_y_secondGroundTriger);
         var direction = Vector2.down;
         var distance = 0.2f;
 
         var defaultMask = LayerMask.GetMask("Default");
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, defaultMask);
-     //   Debug.DrawRay(origin, direction * distance, Color.blue, 0.25f);
-
-        if (hit.collider != null)
+        RaycastHit2D second_hit = Physics2D.Raycast(second_origin, direction, distance, defaultMask);
+        if (needDrawLine)
         {
-            // float check = (transform.position.y + transform.localScale.y) / 1.9f;
-            // hitGround = hit.distance <= check;  // to be sure check slightly beyond bottom of capsule
+            Debug.DrawRay(origin, direction * distance, Color.blue, 0.25f);
+            Debug.DrawRay(second_origin, direction * distance, Color.green, 0.25f);
+        }
+
+        if (hit.collider != null || second_hit.collider != null)
+        {
             hitGround = true;
-            print(hit.collider.name);
+            // print(hit.collider != null ?  hit.collider.name : second_hit.collider.name);
         }
         else
         {
             hitGround = false;
-            print("null obj of down");
+            //  print("null obj of down");
         }
         return hitGround;
     }
