@@ -30,7 +30,7 @@ public class GameCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        sekgj
+        
         //если игрок за пределами то камера уже не летает за ним по иксу, только по игрику
         if (player.position.x > right_limit && player.position.x < left_limit) 
             transform.position = Vector3.Lerp(transform.position, PlayerPosition, Time.deltaTime * time_for_lerp);
