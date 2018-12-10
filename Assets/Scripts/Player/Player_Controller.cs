@@ -35,6 +35,80 @@ public class Player_Controller : MonoBehaviour
 
     bool _isPlayerRight;
 
+    bool moving;
+
+    private void Start()
+    {
+        Rb = GetComponent<Rigidbody2D>();
+        _animation = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if(moving && Is_Ground_Collision() && !Is_Front_Collision())//если двигается, есть земля, нет препятствий
+        {
+            _animation.Play("Run");
+        }else if(moving && !Is_Ground_Collision())//если двигается, нет земли
+        {
+            _animation.Play("Jump");
+        }
+        else if (!moving && !Is_Ground_Collision())//если не двигается, нет земли
+        {
+            _animation.Play("Jump");
+        }else                                      
+            _animation.Play("Idle");
+
+    }
+
+    //бег
+    public void Move(float ax)
+    {
+
+        if (ax > 0)
+        {
+            Turn_Player(true);
+            moving = true;
+        }
+        else if (ax < 0)
+        {
+            Turn_Player(false);
+            moving = true;
+        }
+        else
+        {
+            moving = false;
+            //if (!Is_Ground_Collision())
+            //    _animation.Play("Jump");
+            //else
+            //    _animation.Play("Idle");
+
+            return;
+        }
+
+
+        //  print(Is_Front_Collision());
+        if (!Is_Front_Collision())
+        {
+            //_animation.SetInteger("Move", (int)Do.Run);
+            //if (Is_Ground_Collision())
+            //    _animation.Play("Run");
+            //else
+            //    _animation.Play("Jump");
+            Vector2 vector = Vector2.right * ax;
+            float direction = vector.x;
+            Rb.velocity = new Vector2(direction * runSpeed, Rb.velocity.y);
+        }
+        else
+        {
+            //if (!Is_Ground_Collision())
+            //    _animation.Play("Jump");
+            //else
+            //    _animation.Play("Idle");
+        }
+
+
+    }
+
     void Turn_Player(bool right)
     {
         if (right)
@@ -49,68 +123,16 @@ public class Player_Controller : MonoBehaviour
         _isPlayerRight = right;
     }
 
-    private void Start()
-    {
-        Rb = GetComponent<Rigidbody2D>();
-        _animation = GetComponent<Animator>();
-    }
-
-    //бег
-    public void Move(float ax)
-    {
-        if (ax > 0)
-        {
-            Turn_Player(true);
-        }
-        else if (ax < 0)
-        {
-            Turn_Player(false);
-        }
-        else
-        {
-            //if (Is_Ground())
-                _animation.SetInteger("Move", (int)Do.Stop);
-            return;
-        }
-
-
-        //  print(Is_Front_Collision());
-        if (!Is_Front_Collision())
-        {
-            _animation.Play("Move");
-
-            Vector2 vector = Vector2.right * ax;
-            float direction = vector.x;
-            Rb.velocity = new Vector2(direction * runSpeed, Rb.velocity.y);
-        }
-        else
-        {
-            //_animation.SetInteger("Move", (int)Do.Stop);
-        }
-
-        //print("position: " + GroundTrigger.position.x);
-        //print("local position: " + GroundTrigger.localPosition.x);
-        //  transform.position = Vector3.Lerp(transform.position, transform.position + direction, runSpeed * Time.deltaTime);
-    }
-
-    //void RotateChar(float directChar)
-    //{
-    //    transform.rotation = Quaternion.Euler(new Vector2(transform.rotation.x, directChar));
-    //    _animation.SetInteger("Move", (int)Do.Run);
-    //}
-
     //прыгок
     public void Jump()
     {
-        if (Is_Ground())
+        if (Is_Ground_Collision())
         {
             Rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-            _animation.SetInteger("Move", (int)Do.Jump);
-            print("jump " + _animation.recorderMode);
+            // _animation.Play("Jump");
         }
-
-
     }
+
 
     bool Is_Front_Collision()
     {
@@ -126,7 +148,7 @@ public class Player_Controller : MonoBehaviour
 
         var defaultMask = LayerMask.GetMask("Default");
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, defaultMask);
-        Debug.DrawRay(origin, direction * distance, Color.blue);
+      //  Debug.DrawRay(origin, direction * distance, Color.blue);
 
         if (hit.collider != null)
         {
@@ -142,7 +164,7 @@ public class Player_Controller : MonoBehaviour
     }
 
 
-    bool Is_Ground()
+    bool Is_Ground_Collision()
     {
         //cмотрим задевает ли наш сёркл колайдер что то кроме нас самих
         //выявляем его позицию а затем радиус умноженный на два
@@ -161,7 +183,7 @@ public class Player_Controller : MonoBehaviour
 
         var defaultMask = LayerMask.GetMask("Default");
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, defaultMask);
-        Debug.DrawRay(origin, direction * distance, Color.blue, 0.25f);
+     //   Debug.DrawRay(origin, direction * distance, Color.blue, 0.25f);
 
         if (hit.collider != null)
         {
