@@ -13,7 +13,7 @@ public class Player_Controller : MonoBehaviour
     public float jumpForce = 7;
     public Transform ground_trigger;
     public Transform second_ground_trigger;
-    public bool needDrawLine = false;
+    public bool needDrawLine = true;
 
     private const float _rightRotation = 0; //направление вправо и одновременно начальное направление
     private const float _leftRotation = 180;//направление влево
@@ -44,12 +44,14 @@ public class Player_Controller : MonoBehaviour
         get { return second_ground_trigger.position.y; }
     }
 
-    bool _isPlayerRight;
+    [System.NonSerialized]
+    public bool isPlayerRight;
 
     bool moving;
 
     private void Start()
     {
+        isPlayerRight = true;
         Rb = GetComponent<Rigidbody2D>();
         _animation = GetComponent<Animator>();
     }
@@ -60,11 +62,11 @@ public class Player_Controller : MonoBehaviour
         {
             _animation.Play("Run");
         }
-        else if (moving && !Is_Ground_Collision())//если двигается, нет земли
+        else if (moving && !Is_Ground_Collision())//если двигается и нет земли
         {
             _animation.Play("Jump");
         }
-        else if (!moving && !Is_Ground_Collision())//если не двигается, нет земли
+        else if (!moving && !Is_Ground_Collision())//если не двигается и  нет земли
         {
             _animation.Play("Jump");
         }
@@ -113,7 +115,7 @@ public class Player_Controller : MonoBehaviour
             _directionPlayer = Quaternion.Euler(transform.rotation.x, _leftRotation, 0);
         }
         transform.rotation = _directionPlayer;
-        _isPlayerRight = right;
+        isPlayerRight = right;
     }
 
     //прыгок
@@ -131,13 +133,13 @@ public class Player_Controller : MonoBehaviour
     {
         bool hitGround = false;
         var origin = new Vector2(position_x_groundTriger, position_y_groundTriger);
-        var direction = _isPlayerRight ? Vector2.right : Vector2.left; //new Vector2(directionX, position_y_groundTriger);
+        var direction = isPlayerRight ? Vector2.right : Vector2.left; //new Vector2(directionX, position_y_groundTriger);
         var distance = 0.1f;
 
         var defaultMask = LayerMask.GetMask("Default");
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, defaultMask);
 
-        if (needDrawLine)
+        if (needDrawLine == true)
         {
             Debug.DrawRay(origin, direction * distance, Color.red, 0.25f);
         }
