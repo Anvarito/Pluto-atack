@@ -7,12 +7,11 @@ public class User_Controller : MonoBehaviour
 {
 
     private Player_Controller pc;
-    private Gun gun;
+    public Gun gun;
     // Use this for initialization
     void Start()
     {
         pc = GetComponent<Player_Controller>();
-        gun = GetComponent<Gun>();
     }
 
     // Update is called once per frame
@@ -25,7 +24,7 @@ public class User_Controller : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
             gun.Fire();
-        else if (Input.GetButtonUp("Fire1"))
-            gun.StopFire();
+      //  else if (Input.GetButtonUp("Fire1"))
+           // gun.StopFire();
     }
 }

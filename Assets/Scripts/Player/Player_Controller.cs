@@ -14,6 +14,7 @@ public class Player_Controller : MonoBehaviour
     public Transform ground_trigger;
     public Transform second_ground_trigger;
     public bool needDrawLine = true;
+    public float distanceLine = 0.1f;
 
     private const float _rightRotation = 0; //направление вправо и одновременно начальное направление
     private const float _leftRotation = 180;//направление влево
@@ -164,26 +165,26 @@ public class Player_Controller : MonoBehaviour
         var origin = new Vector2(position_x_groundTriger, position_y_groundTriger);
         var second_origin = new Vector2(position_x_secondGroundTriger, position_y_secondGroundTriger);
         var direction = Vector2.down;
-        var distance = 0.2f;
+       // var distance = 0.2f;
 
         var defaultMask = LayerMask.GetMask("Default");
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, defaultMask);
-        RaycastHit2D second_hit = Physics2D.Raycast(second_origin, direction, distance, defaultMask);
-        if (needDrawLine)
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, distanceLine, defaultMask);
+        RaycastHit2D second_hit = Physics2D.Raycast(second_origin, direction, distanceLine, defaultMask);
+        if (needDrawLine == true)
         {
-            Debug.DrawRay(origin, direction * distance, Color.blue, 0.25f);
-            Debug.DrawRay(second_origin, direction * distance, Color.green, 0.25f);
+            Debug.DrawRay(origin, direction * distanceLine, Color.blue, 0.25f);
+            Debug.DrawRay(second_origin, direction * distanceLine, Color.green, 0.25f);
         }
 
         if (hit.collider != null || second_hit.collider != null)
         {
             hitGround = true;
-            // print(hit.collider != null ?  hit.collider.name : second_hit.collider.name);
+           // print(hit.collider != null ?  hit.collider.name : second_hit.collider.name);
         }
         else
         {
             hitGround = false;
-            //  print("null obj of down");
+           // print("null obj of down");
         }
         return hitGround;
     }

@@ -6,21 +6,20 @@ public class Gun : MonoBehaviour
 {
 
     // Use this for initialization
-    public GameObject gun;
-    public Animator animator;
-    private Player_Controller pc;
+    private Animator animator;
+    public Player_Controller pc;
     private Quaternion _directionGun;
     public Transform point_for_gun;
     void Start()
     {
-        pc = GetComponent<Player_Controller>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float newY = Mathf.Lerp(gun.transform.position.y, point_for_gun.position.y, 0.5f);
-        gun.transform.position = new Vector3(point_for_gun.position.x, newY, point_for_gun.position.z);
+        float newY = Mathf.Lerp(transform.position.y, point_for_gun.position.y, 0.5f);
+        transform.position = new Vector3(point_for_gun.position.x, newY, point_for_gun.position.z);
         Turn();
     }
 
@@ -34,7 +33,7 @@ public class Gun : MonoBehaviour
         {
             _directionGun = Quaternion.Euler(transform.rotation.x, 180, 0);
         }
-        gun.transform.rotation = _directionGun;
+        transform.rotation = _directionGun;
     }
 
     public void Fire()
