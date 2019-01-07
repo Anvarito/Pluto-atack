@@ -24,7 +24,7 @@ public class User_Controller : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
             gun.Fire();
-      //  else if (Input.GetButtonUp("Fire1"))
-           // gun.StopFire();
+        //else if (Input.GetButtonUp("Fire1"))
+        //    gun.StopFire();
     }
 }
