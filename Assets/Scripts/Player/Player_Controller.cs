@@ -132,7 +132,7 @@ public class Player_Controller : MonoBehaviour
 
     bool Is_Front_Collision()
     {
-        bool hitGround = false;
+        bool hitFront = false;
         var origin = new Vector2(position_x_groundTriger, position_y_groundTriger);
         var direction = isPlayerRight ? Vector2.right : Vector2.left; //new Vector2(directionX, position_y_groundTriger);
         var distance = 0.1f;
@@ -145,17 +145,19 @@ public class Player_Controller : MonoBehaviour
             Debug.DrawRay(origin, direction * distance, Color.red, 0.25f);
         }
 
-        if (hit.collider != null)
+
+        //тут костыль с пулей, что бы персонаж игнорировал 
+        if (hit.collider != null && hit.collider.tag != "bullet")
         {
-            hitGround = true;
+            hitFront = true;
           //  print(hit.collider.name);
         }
         else
         {
-            hitGround = false;
+            hitFront = false;
           //  print("null obj of forward");
         }
-        return hitGround;
+        return hitFront;
     }
 
 

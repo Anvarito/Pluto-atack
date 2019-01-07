@@ -22,7 +22,7 @@ public class User_Controller : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
             pc.Jump();
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
             gun.Fire();
         //else if (Input.GetButtonUp("Fire1"))
         //    gun.StopFire();
