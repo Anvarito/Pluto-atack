@@ -21,6 +21,7 @@ For use with Unity 2018.2.0f2 onwards. Please use the 2017 branch for earlier ve
 - **TintBrushSmooth**: Advanced tint brush for interpolated tint color per-cell. Requires the use of custom shader (see TintedTilemap.shader) and helper component TileTextureGenerator.
 - **Group**: This Brush helps to pick Tiles which are grouped together by position. Gaps can be set to identify if Tiles belong to a Group. Limits can be set to ensure that an over-sized Group will not be picked. Use this as an example to create brushes that have the ability to choose and pick whichever Tiles it is interested in. 
 
+
 ##### Tiles
 
 - **Animated**: Animated Tiles are tiles which run through and display a list of sprites in sequence.
