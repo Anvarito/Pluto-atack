@@ -1,12 +1,15 @@
 fileFormatVersion: 2
-guid: 9a8365b90036f6a4da1a6ad5b7110eda
+guid: 2feb540149c6fb34e83e6f71baaf450a
 TextureImporter:
   fileIDToRecycleName:
-    21300000: TOP_0
-    21300002: TOP_1
-    21300004: TOP_2
-    21300006: TOP_3
-    21300008: TOP_4
+    21300000: beg4_0
+    21300002: beg4_1
+    21300004: beg4_2
+    21300006: beg4_3
+    21300008: beg4_4
+    21300010: beg4_5
+    21300012: beg4_6
+    21300014: beg4_7
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -47,12 +50,12 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -76,7 +79,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -84,17 +87,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: iPhone
@@ -119,6 +111,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -133,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TOP_0
+      name: beg4_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 35
-        height: 42
+        width: 38
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,19 +150,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 556f345f4cb206046b101d356dd8a16f
+      spriteID: de2e1a4693ddc8846aa61f3eb4e2fd3e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TOP_1
+      name: beg4_1
       rect:
         serializedVersion: 2
-        x: 36
+        x: 41
         y: 0
-        width: 35
-        height: 42
+        width: 38
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,19 +170,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 273f0212c8d8dc5489cf6071f7a21ac2
+      spriteID: 4eb8b74aced6c634a93972e60ab3d823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TOP_2
+      name: beg4_2
       rect:
         serializedVersion: 2
-        x: 72
+        x: 81
         y: 0
-        width: 35
-        height: 42
+        width: 38
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,19 +190,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06ef414d85f1eed4795bb823311e3a04
+      spriteID: 3c68661cb6fcbfd4aba83a8b6ca2314b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TOP_3
+      name: beg4_3
       rect:
         serializedVersion: 2
-        x: 108
+        x: 121
         y: 0
-        width: 35
-        height: 42
+        width: 38
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,19 +210,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ca96ad0b614f7942b8d8431d5b2f642
+      spriteID: 6cf9948021ca63c4bb7358b848a82405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TOP_4
+      name: beg4_4
       rect:
         serializedVersion: 2
-        x: 144
+        x: 161
         y: 0
-        width: 35
-        height: 42
+        width: 38
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,7 +230,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0206e7add67238640a775c0bac3a85ca
+      spriteID: 0c2ae10f7119e1a459728533e1c8783d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beg4_5
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 0
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed4d8ef14c3e7f1499ada57857426b5f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beg4_6
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 0
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c8742d74d246ca4b9ef019142fc0899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beg4_7
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 0
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 774506f2b7a5cab42ae7ebcca7093885
       vertices: []
       indices: 
       edges: []
@@ -235,12 +298,12 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4b5def6dc8c0ec244a4d4e34482358cd
+    spriteID: 1021231ff91e57046a934d39efd7c038
     vertices: []
     indices: 
     edges: []
     weights: []
-  spritePackingTag: jumpPlayer
+  spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
