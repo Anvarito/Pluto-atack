@@ -135,12 +135,12 @@ public class Player_Controller : MonoBehaviour
         bool hitFront = false;
         var origin = new Vector2(position_x_groundTriger, position_y_groundTriger);
         var direction = isPlayerRight ? Vector2.right : Vector2.left; //new Vector2(directionX, position_y_groundTriger);
-        var distance = 0.1f;
+        var distance = 0.4f;
 
         var defaultMask = LayerMask.GetMask("Default");
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, defaultMask);
 
-        if (needDrawLine == true)
+        if (needDrawLine == true) //если стоит галочка "нужны линии"
         {
             Debug.DrawRay(origin, direction * distance, Color.red, 0.25f);
         }
