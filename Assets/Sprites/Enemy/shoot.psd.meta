@@ -1,15 +1,17 @@
 fileFormatVersion: 2
-guid: 3740817cfa510614c90bdb0cb7875bbc
+guid: 19f55ee27d76471488ecf606c0a7c9d8
 TextureImporter:
   fileIDToRecycleName:
-    21300000: run_0
-    21300002: run_1
-    21300004: run_2
-    21300006: run_3
-    21300008: run_4
-    21300010: run_5
-    21300012: run_6
-    21300014: run_7
+    21300000: vistrel_0
+    21300002: vistrel_1
+    21300004: vistrel_2
+    21300006: vistrel_3
+    21300008: vistrel_4
+    21300010: vistrel_5
+    21300012: vistrel_6
+    21300014: vistrel_7
+    21300016: vistrel_8
+    21300018: vistrel_9
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -89,40 +91,7 @@ TextureImporter:
     overridden: 1
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -136,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: run_0
+      name: vistrel_0
       rect:
         serializedVersion: 2
         x: 1
         y: 0
-        width: 63
-        height: 52
+        width: 73
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,19 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8865807b6e9d2dd408f3b16c6225c2e6
+      spriteID: c00707abf686aee49a2a07f11734ef86
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_1
+      name: vistrel_1
       rect:
         serializedVersion: 2
-        x: 66
+        x: 76
         y: 0
-        width: 63
-        height: 52
+        width: 73
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,19 +139,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85d298404a625374a8f91bb412ea9269
+      spriteID: b8dbd69d1474b3844b7789d6eb0491f7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_2
+      name: vistrel_2
       rect:
         serializedVersion: 2
-        x: 131
+        x: 151
         y: 0
-        width: 63
-        height: 52
+        width: 73
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,19 +159,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccd0c51fc5839364796d3c9511b9b6b1
+      spriteID: 709c19543c97e814a910e6ae49fdcd55
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_3
+      name: vistrel_3
       rect:
         serializedVersion: 2
-        x: 196
+        x: 226
         y: 0
-        width: 63
-        height: 52
+        width: 73
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,19 +179,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e2546853f4f99946a9470c17f834abc
+      spriteID: 0f29cabfa4b5d83459fb7546fab617ab
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_4
+      name: vistrel_4
       rect:
         serializedVersion: 2
-        x: 261
+        x: 301
         y: 0
-        width: 63
-        height: 52
+        width: 73
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,19 +199,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92232f11ef9528a488b3e4b9bb9ba6ee
+      spriteID: e88f8f8f0e9ee7e4bb5efa805c57ae51
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_5
+      name: vistrel_5
       rect:
         serializedVersion: 2
-        x: 326
+        x: 376
         y: 0
-        width: 63
-        height: 52
+        width: 73
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,19 +219,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37f11fe09b5d4404b97ff346c6caa46c
+      spriteID: aea3df1c75909104190b8efb50f35d65
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_6
+      name: vistrel_6
       rect:
         serializedVersion: 2
-        x: 391
+        x: 451
         y: 0
-        width: 63
-        height: 52
+        width: 73
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,19 +239,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2fa9f08d765cf54b8c2b760eb520f61
+      spriteID: 2622c095cc9c3844db55fb059f8f4994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_7
+      name: vistrel_7
       rect:
         serializedVersion: 2
-        x: 456
+        x: 526
         y: 0
-        width: 63
-        height: 52
+        width: 73
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,7 +259,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4aa4303976604841bff81d5644eb410
+      spriteID: 0feb98cc6cd256b4692ba1ba340fb163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vistrel_8
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 0
+        width: 72
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36371aadf743bd2479bb535bb96c4fd7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vistrel_9
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 0
+        width: 73
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9190e60d349b08f4f931766d4e426abc
       vertices: []
       indices: 
       edges: []
@@ -298,7 +307,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b98523d65499d3b4c81e04c0414e2445
+    spriteID: 8db8e39bfc0a8424baba21c2ca0d8184
     vertices: []
     indices: 
     edges: []

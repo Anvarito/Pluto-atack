@@ -15,6 +15,7 @@ public class Player_Controller : MonoBehaviour
     public Transform second_ground_trigger;
     public bool needDrawLine = true;
     public float distanceLine = 0.1f;
+    public float FrontCollisionDistance = 0.3f;
 
     private const float _rightRotation = 0; //направление вправо и одновременно начальное направление
     private const float _leftRotation = 180;//направление влево
@@ -135,14 +136,13 @@ public class Player_Controller : MonoBehaviour
         bool hitFront = false;
         var origin = new Vector2(position_x_groundTriger, position_y_groundTriger);
         var direction = isPlayerRight ? Vector2.right : Vector2.left; //new Vector2(directionX, position_y_groundTriger);
-        var distance = 0.1f;
 
         var defaultMask = LayerMask.GetMask("Default");
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, defaultMask);
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, FrontCollisionDistance, defaultMask);
 
         if (needDrawLine == true)
         {
-            Debug.DrawRay(origin, direction * distance, Color.red, 0.25f);
+            Debug.DrawRay(origin, direction * FrontCollisionDistance, Color.red, 0.25f);
         }
 
 
