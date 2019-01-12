@@ -146,8 +146,7 @@ public class Player_Controller : MonoBehaviour
         }
 
 
-        //тут костыль с пулей, что бы персонаж игнорировал 
-        if (hit.collider != null && hit.collider.tag != "bullet")
+        if (hit.collider != null)
         {
             hitFront = true;
           //  print(hit.collider.name);

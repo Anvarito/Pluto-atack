@@ -114,9 +114,12 @@
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineShot.cs" />
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineTrack.cs" />
     <Compile Include="Assets\Scripts\Bullets\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Bullets\Bullet_Hit_Effect.cs" />
     <Compile Include="Assets\Scripts\Camera\GameCamera.cs" />
     <Compile Include="Assets\Scripts\Enemys\Ai_Enemy.cs" />
+    <Compile Include="Assets\Scripts\Enemys\JumpEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemys\MoveEnemy.cs" />
+    <Compile Include="Assets\Scripts\Enemys\ShootingEnemy.cs" />
     <Compile Include="Assets\Scripts\Player\Gun.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Controller.cs" />
     <Compile Include="Assets\Scripts\Player\User_Controller.cs" />
@@ -138,10 +141,10 @@
     <None Include="Assets\test\shash.txt" />
     <None Include="Assets\test\5.txt" />
     <None Include="Assets\test\7.txt" />
-    <None Include="Assets\test\4.txt" />
     <None Include="Assets\Tilemap\Brushes\Tint Brush Smooth\Shaders\TintedTilemap.shader" />
     <None Include="Assets\Cinemachine\ReleaseNotes.txt" />
     <None Include="Assets\test\algiz.txt" />
+    <None Include="Assets\test\74.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/GitHubProject/Plutto-atack/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
