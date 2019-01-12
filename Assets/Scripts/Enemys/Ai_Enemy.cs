@@ -14,6 +14,11 @@ public class Ai_Enemy : MonoBehaviour
     public float numberDistanceForPlayer = 7;
     public float numberDistanceForAtack = 3;
 
+    public float timer = 0;
+    public bool timerstarted = false;
+
+    public float speed = 3;
+
     [System.NonSerialized]
     public GameObject player;
     [System.NonSerialized]
@@ -30,7 +35,7 @@ public class Ai_Enemy : MonoBehaviour
     Rigidbody2D bullet;// для анимации стрельбы
     Transform point;//для анимации стрельбы
 
-
+    private float JumpTime = 0.5f;
 
     private const float _rightRotation = 0; //направление вправо и одновременно начальное направление
     private const float _leftRotation = 180;//направление влево
@@ -68,6 +73,29 @@ public class Ai_Enemy : MonoBehaviour
 
     void Update()
     {
+        if (timerstarted)
+            timer += Time.deltaTime;
+
+
+        if (_PlayerInZoneVisible)
+        {
+            if (!_PlayerInZoneAtack && !Is_Front_Collision() && (Is_Ground_Collision() || (timer <=  JumpTime) && timerstarted))
+                Move(speed);
+
+            Turn_Enemy(!(Dot() > 0));
+        }
+        else
+        {
+            Stay();
+        }
+
+        if (timer >= JumpTime)
+        {
+            timerstarted = false;
+            timer = 0;
+        }
+
+        Debug.Log(timer);
         poitForRay = RayToPlayer();
         Is_Ground_Collision();
 
@@ -195,24 +223,15 @@ public class Ai_Enemy : MonoBehaviour
 
     public void Move(float speed)
     {
+        
         Animation("Run");
 
         Vector2 dir = DirectionToPlayer();
         float direction = dir.x;
         _rigidbody.velocity = new Vector2(direction * speed, 0);
-
-        if (Dot() > 0)
-        {
-            Turn_Enemy(false);
-        }
-        else
-        {
-            Turn_Enemy(true);
-        }
-
     }//метод движения
 
-    void Turn_Enemy(bool right)
+    public void Turn_Enemy(bool right)
     {
         if (right)
         {
@@ -228,8 +247,11 @@ public class Ai_Enemy : MonoBehaviour
 
     public void Jump(float jumpForce)
     {
+        timerstarted = true;
+        Debug.Log("I before jumping");
         // print(jumpForce);
-        _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        _rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        Debug.Log("I jumped already");
     }//метод прыжка
 
     public void Shoot(Rigidbody2D bullet, Transform point)

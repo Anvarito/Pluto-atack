@@ -7,7 +7,7 @@ public class JumpEnemy : MonoBehaviour
 {
 
     Ai_Enemy _Ai;
-    public float jumpForce = 100;
+    public float jumpForce = 300;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,10 @@ public class JumpEnemy : MonoBehaviour
     void Update()
     {
         if (_Ai._PlayerInZoneVisible == true && _Ai.CollisionToPlayer != true)
+        {
+           // Debug.Log("I can jump");
             Jump();
+        }
     }
 
     void Jump()
@@ -26,8 +29,12 @@ public class JumpEnemy : MonoBehaviour
 
         if ( _Ai.Is_Front_Collision())
         {
-            if (_Ai.Is_Ground_Collision() == true)
+           // Debug.Log("Front colision");
+            if (_Ai.Is_Ground_Collision())
+            {
+            //    Debug.Log("Ground colision");
                 _Ai.Jump(jumpForce);
+            }
         }
 
     }

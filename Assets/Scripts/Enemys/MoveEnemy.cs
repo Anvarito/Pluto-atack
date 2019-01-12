@@ -10,6 +10,7 @@ public class MoveEnemy : MonoBehaviour
     // Rigidbody2D _rigidbody;
     // Animator _animation;
     public float speed = 3;
+    public float timer;
 
 
 
@@ -26,17 +27,17 @@ public class MoveEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (_Ai._PlayerInZoneVisible)
         {
-            if (_Ai._PlayerInZoneAtack != true)
+            if (!_Ai._PlayerInZoneAtack && !_Ai.Is_Front_Collision() && _Ai.Is_Ground_Collision())
                 _Ai.Move(speed);
+
+            _Ai.Turn_Enemy(!(_Ai.Dot() > 0));
         }
         else
         {
             _Ai.Stay();
         }
-
     }
 
     //private void OnCollisionStay2D(Collision2D collision)
