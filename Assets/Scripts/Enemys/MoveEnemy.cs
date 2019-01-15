@@ -189,22 +189,11 @@ public class MoveEnemy : MonoBehaviour
             return hitFront = false;
         }
     }//проверка на наличие препятствия впереди
-    //public float Dot()
-    //{
-    //    //тут у нас скалярное произведение
-    //    var d = Vector2.Dot(Vector2.left, DirectionToPlayer());
-    //    return d;
-    //}//вектор по направлению к игроку
-    //public Vector2 DirectionToPlayer() //направление к игроку
-    //{
-    //    var dir = _positionEnemy - _positionPlayer;
-    //    var result = Vector3.Normalize(dir);
-    //    return -result;((timer <= JumpTime) && timerstarted)
-    //}
+   
 
     public void Run(Vector2 DirectionToPlayer)
     {
-        if (!Is_Front_Collision() && Is_Ground_Collision() || !((timer <= JumpTime) && timerstarted))
+        if (!Is_Front_Collision() && Is_Ground_Collision() || )
         {
             _animator.Play("Run");
 
@@ -250,17 +239,7 @@ public class MoveEnemy : MonoBehaviour
         _animator.Play("Stay");
     }//метод что бы просто стоять
 
-    //private void OnCollisionStay2D(Collision2D collision)
-    //{
-    //   // print(collision.transform.tag);
-    //    if (collision.transform.tag == "Player")
-    //    {
-    //        _Ai.Stay();
-    //        contactToPlayer = true;
-    //    }
-    //    else
-    //        contactToPlayer = false;
-    //}
+   
 
 
 }
