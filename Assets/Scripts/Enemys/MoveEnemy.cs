@@ -22,6 +22,7 @@ public class MoveEnemy : MonoBehaviour
 
     public float speed = 3;
     public float jumpForce;
+    private float JumpTime = 0.7f; //время через которое во время прыжка может снова идти вперёд AI
 
     [System.NonSerialized]
     public bool isEnemyRight;
@@ -32,7 +33,6 @@ public class MoveEnemy : MonoBehaviour
     private float timer = 0;
     private bool timerstarted = false;
 
-    private float JumpTime = 0.5f; //время через которое во время прыжка может снова идти вперёд AI
 
     bool contactToPlayer = false;
 
@@ -193,7 +193,7 @@ public class MoveEnemy : MonoBehaviour
 
     public void Run(Vector2 DirectionToPlayer)
     {
-        if (!Is_Front_Collision() && Is_Ground_Collision() || )
+        if (!Is_Front_Collision() && (Is_Ground_Collision() || (timer <= JumpTime) && timerstarted))
         {
             _animator.Play("Run");
 
