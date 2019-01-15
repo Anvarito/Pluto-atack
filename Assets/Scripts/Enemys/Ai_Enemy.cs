@@ -40,7 +40,9 @@ public class Ai_Enemy : MonoBehaviour
         MOVE = GetComponent<MoveEnemy>();
         SHOOT = GetComponent<ShootingEnemy>();
         MELEE = GetComponent<MeleeEnemy>();
-        
+        //player = GameObject.Find("Player");
+        //_animation = GetComponent<Animator>();
+        //_rigidbody = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -53,7 +55,7 @@ public class Ai_Enemy : MonoBehaviour
 
         if (moveAllow && !shootAllow && !meleeAllow)
         {
-            // print("i run");
+           // print("i run");
             try
             {
                 MOVE.Turn(Dot);
@@ -66,7 +68,7 @@ public class Ai_Enemy : MonoBehaviour
         }
         else if (shootAllow && !meleeAllow && !moveAllow)
         {
-            //  print("i shoot");
+          //  print("i shoot");
             try
             {
                 MOVE.Turn(Dot);
@@ -80,16 +82,16 @@ public class Ai_Enemy : MonoBehaviour
         }
         else if (meleeAllow)
         {
-            // print("i melee");
+           // print("i melee");
             MOVE.Turn(Dot);
             try
             {
 
-                MELEE.Atack(DirectionToPlayer);
+                MELEE.Atack();
             }
-            catch { 
-
-               print(gameObject.name + ": i cant melee");
+            catch
+            {
+                print(gameObject.name + ": i cant melee");
             }
         }
         else
@@ -116,7 +118,7 @@ public class Ai_Enemy : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         print("hit");
-        if (collision.transform.tag == "bullet")
+        if(collision.transform.tag == "bullet")
         {
             HP -= collision.gameObject.GetComponent<Bullet>().Damage;
         }

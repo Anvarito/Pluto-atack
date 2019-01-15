@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour
 {
-
-    private Vector2 Dir;
-    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -19,9 +16,8 @@ public class MeleeEnemy : MonoBehaviour
         
     }
 
-    public void Atack(Vector2 DirectionToPlayer)
+    public void Atack()
     {
-        Dir = DirectionToPlayer;
-        animator.Play("Shoot");
+
     }
 }

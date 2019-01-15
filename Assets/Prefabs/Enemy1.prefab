@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147342298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.312, y: -0.76299995, z: 0}
+  m_LocalPosition: {x: 0.32, y: -0.76299995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3001023821200617096}
@@ -253,7 +253,6 @@ GameObject:
   - component: {fileID: 3001023821200617103}
   - component: {fileID: 3001023821200617100}
   - component: {fileID: 3001023821200617090}
-  - component: {fileID: 2098296797}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: enemy
@@ -398,12 +397,11 @@ MonoBehaviour:
   MOVE: {fileID: 3001023821200617100}
   SHOOT: {fileID: 3001023821200617090}
   MELEE: {fileID: 0}
-  HP: 1
-  deathEff: {fileID: 8154724476448960517, guid: a586403b38c8684488139d4f5c5d7b8e,
-    type: 3}
+  HP: 5
+  deathEff: {fileID: 0}
   numberDistanceForMove: 7
   numberDistanceForShoot: 3
-  numberDistanceForMele: 2
+  numberDistanceForMele: 1
 --- !u!114 &3001023821200617100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,26 +417,12 @@ MonoBehaviour:
   groundTrigger: {fileID: 3001023820265232619}
   groundTriggerSecond: {fileID: 147342299}
   forwardTrigger: {fileID: 567340606}
-  GroundCollisionDistance: 0.1
-  FrontCollisionDistance: 1.5
+  GroundCollisionDistance: 0.2
+  FrontCollisionDistance: 0.2
   needDebugDrawLine: 0
-  speed: 3.5
-  jumpForce: 350
+  speed: 5
+  jumpForce: 100
 --- !u!114 &3001023821200617090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3001023821200617205}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532b7f351b454304ca95c93b3fcde82f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointForShoot: {fileID: 3001023821327099130}
-  Bullet: {fileID: 4016725140772440335, guid: 51de93b0b4920d74884685a17ba73fb0, type: 3}
---- !u!114 &2098296797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -447,9 +431,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3001023821200617205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d9d3455a3ecf354da8c3ce7a9c2b309, type: 3}
+  m_Script: {fileID: 11500000, guid: 532b7f351b454304ca95c93b3fcde82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointForShoot: {fileID: 3001023821327099130}
+  Bullet: {fileID: 4016725140772440335, guid: 51de93b0b4920d74884685a17ba73fb0, type: 3}
 --- !u!1 &3001023821327099109
 GameObject:
   m_ObjectHideFlags: 0
