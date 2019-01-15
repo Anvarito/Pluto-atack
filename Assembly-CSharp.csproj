@@ -113,11 +113,12 @@
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineMixer.cs" />
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineShot.cs" />
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineTrack.cs" />
+    <Compile Include="Assets\Scripts\AImanager.cs" />
     <Compile Include="Assets\Scripts\Bullets\Bullet.cs" />
     <Compile Include="Assets\Scripts\Bullets\Bullet_Hit_Effect.cs" />
     <Compile Include="Assets\Scripts\Camera\GameCamera.cs" />
     <Compile Include="Assets\Scripts\Enemys\Ai_Enemy.cs" />
-    <Compile Include="Assets\Scripts\Enemys\JumpEnemy.cs" />
+    <Compile Include="Assets\Scripts\Enemys\MeleeEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemys\MoveEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemys\ShootingEnemy.cs" />
     <Compile Include="Assets\Scripts\Player\Gun.cs" />

@@ -3,27 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Ai_Enemy))]
+[RequireComponent(typeof(Animator))]
 public class ShootingEnemy : MonoBehaviour
 {
 
-    Ai_Enemy _Ai;
+   // Ai_Enemy _Ai;
     public Transform pointForShoot;
     public Rigidbody2D Bullet;
-
+    private Vector2 Dir;
+    Animator animator;
 
     void Start()
     {
-        _Ai = GetComponent<Ai_Enemy>();
+        animator = GetComponent<Animator>();
+        //_Ai = GetComponent<Ai_Enemy>();
     }
 
     void Update()
     {
-        if (_Ai._PlayerInZoneAtack) // пока игрок в зоне атаки
-            Shot();
+        //if (_Ai._PlayerInZoneAtack) // пока игрок в зоне атаки
+        //    Shot();
     }
 
-    void Shot()
+    //void Shot()
+    //{
+    //    _Ai.Shoot(Bullet,pointForShoot);
+    //}
+
+    public void Shoot(Vector2 DirectionToPlayer)
     {
-        _Ai.Shoot(Bullet,pointForShoot);
+        Dir = DirectionToPlayer;
+        animator.Play("Shoot");
+      
+    }//стрельба
+    void BulletShoot()
+    {
+        Rigidbody2D buletObj = Instantiate(Bullet, pointForShoot.transform.position, Quaternion.identity) as Rigidbody2D;
+        buletObj.AddForce(Dir * buletObj.GetComponent<Bullet>().bullet_speed, ForceMode2D.Impulse);
     }
 }
