@@ -193,7 +193,7 @@ public class MoveEnemy : MonoBehaviour
 
     public void Run(Vector2 DirectionToPlayer)
     {
-        if (!Is_Front_Collision() && Is_Ground_Collision() || )
+        if (!Is_Front_Collision() && (Is_Ground_Collision() || (timer <= JumpTime) && timerstarted))
         {
             _animator.Play("Run");
 
@@ -228,10 +228,10 @@ public class MoveEnemy : MonoBehaviour
     public void Jump()
     {
         timerstarted = true;
-        Debug.Log("I before jumping");
+       // Debug.Log("I before jumping");
         // print(jumpForce);
         _rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-        Debug.Log("I jumped already");
+       // Debug.Log("I jumped already");
     }//метод прыжка
 
     public void Stay()

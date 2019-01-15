@@ -50,6 +50,7 @@ public class Ai_Enemy : MonoBehaviour
         //print("run " + moveAllow + " shoot " + shootAllow + " mele " + meleeAllow);
         if (HP <= 0)
         {
+            AImanager.AIlist.Remove(this);
             death();
         }
 
@@ -63,7 +64,7 @@ public class Ai_Enemy : MonoBehaviour
             }
             catch
             {
-                print(gameObject.name + ": i cant move");
+              //  print(gameObject.name + ": i cant move");
             }
         }
         else if (shootAllow && !meleeAllow && !moveAllow)
@@ -76,7 +77,7 @@ public class Ai_Enemy : MonoBehaviour
             }
             catch
             {
-                print(gameObject.name + ": i cant shoot");
+               // print(gameObject.name + ": i cant shoot");
                 MOVE.Run(DirectionToPlayer);
             }
         }
@@ -91,12 +92,12 @@ public class Ai_Enemy : MonoBehaviour
             }
             catch
             {
-                print(gameObject.name + ": i cant melee");
+              //  print(gameObject.name + ": i cant melee");
             }
         }
         else
         {
-            print("i stay");
+           // print("i stay");
             try
             {
 
@@ -104,7 +105,7 @@ public class Ai_Enemy : MonoBehaviour
             }
             catch
             {
-                print(gameObject.name + ": i cant move");
+               // print(gameObject.name + ": i cant move");
             }
         }
     }
@@ -115,9 +116,9 @@ public class Ai_Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("hit");
+        // print("hit");
         if(collision.transform.tag == "bullet")
         {
             HP -= collision.gameObject.GetComponent<Bullet>().Damage;
