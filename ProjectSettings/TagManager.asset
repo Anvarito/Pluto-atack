@@ -9,6 +9,8 @@ TagManager:
   - bullet
   - enemy
   - shootingEnemy
+  - punch
+  - meleeEnemy
   layers:
   - Default
   - TransparentFX

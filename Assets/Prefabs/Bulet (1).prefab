@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1040755948634536420}
   - component: {fileID: 4016725140772440335}
   - component: {fileID: 7709212188363470913}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bulet (1)
-  m_TagString: Untagged
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,5 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet_speed: 30
+  Damage: 1
   bulletHitEffect_1: {fileID: 6952560227735918004, guid: 74dc2bc0efa2b1046bd7c23922c0df05,
     type: 3}

@@ -11,8 +11,11 @@ public class Player_Controller : MonoBehaviour
 
     public float runSpeed = 7;
     public float jumpForce = 7;
+    public int HP = 100;
     public Transform ground_trigger;
     public Transform second_ground_trigger;
+    public Transform forwardTrigger;
+    public Transform secondforwardTrigger;
     public bool needDrawLine = true;
     public float distanceLine = 0.1f;
     public float FrontCollisionDistance = 0.3f;
@@ -39,11 +42,28 @@ public class Player_Controller : MonoBehaviour
     float position_x_secondGroundTriger
     {
         get { return second_ground_trigger.position.x; }
-    }
-
+    }//два  триггера для обнаружения земли
     float position_y_secondGroundTriger
     {
         get { return second_ground_trigger.position.y; }
+    }
+
+    float position_x_forwardTrigger
+    {
+        get { return forwardTrigger.position.x; }
+    } //икс и игрик позиция переднего тригера для обнаружения препятствий
+    float position_y_forwardTrigger
+    {
+        get { return forwardTrigger.position.y; }
+    }
+
+    float position_x_secondforwardTrigger
+    {
+        get { return secondforwardTrigger.position.x; }
+    } //икс и игрик позиция переднего тригера для обнаружения препятствий
+    float position_y_secondforwardTrigger
+    {
+        get { return secondforwardTrigger.position.y; }
     }
 
     [System.NonSerialized]
@@ -135,18 +155,24 @@ public class Player_Controller : MonoBehaviour
     {
         bool hitFront = false;
         var origin = new Vector2(position_x_groundTriger, position_y_groundTriger);
+        var second_origin = new Vector2(position_x_forwardTrigger, position_y_forwardTrigger);
+        var third_origin = new Vector2(position_x_secondforwardTrigger, position_y_secondforwardTrigger);
         var direction = isPlayerRight ? Vector2.right : Vector2.left; //new Vector2(directionX, position_y_groundTriger);
 
         var defaultMask = LayerMask.GetMask("Default");
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, FrontCollisionDistance, defaultMask);
+        RaycastHit2D second_hit = Physics2D.Raycast(second_origin, direction, FrontCollisionDistance, defaultMask);
+        RaycastHit2D third_hit = Physics2D.Raycast(third_origin, direction, FrontCollisionDistance, defaultMask);
 
         if (needDrawLine == true)
         {
             Debug.DrawRay(origin, direction * FrontCollisionDistance, Color.red, 0.25f);
+            Debug.DrawRay(second_origin, direction * FrontCollisionDistance, Color.yellow, 0.25f);
+            Debug.DrawRay(third_origin, direction * FrontCollisionDistance, Color.grey, 0.25f);
         }
 
 
-        if (hit.collider != null)
+        if (hit.collider != null || second_hit.collider != null || third_hit.collider != null)
         {
             hitFront = true;
           //  print(hit.collider.name);
@@ -193,9 +219,10 @@ public class Player_Controller : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //   print("!!!!");
-        //if (!Is_Ground())
-        //{
-        //    Rb.AddForce(Vector2.down*2, ForceMode2D.Impulse);
-        //}
+        if (collision.transform.tag == "punch")
+        {
+            print(HP);
+            HP -= collision.transform.parent.GetComponent<MeleeEnemy>().Damage;
+        }
     }
 }

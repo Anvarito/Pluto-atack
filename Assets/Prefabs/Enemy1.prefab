@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147342298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.32, y: -0.801, z: 0}
+  m_LocalPosition: {x: 0.427, y: -1.0740001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3001023821200617096}
@@ -104,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567340605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22, y: -0.207, z: 0}
+  m_LocalPosition: {x: -0.36299965, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3001023821200617096}
@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3001023820265232618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.217, y: -0.807, z: 0}
+  m_LocalPosition: {x: -0.358, y: -1.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3001023821200617096}
@@ -358,8 +358,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05344391, y: -0.24717973}
-  m_Size: {x: 0.6503067, y: 1.171391}
+  m_Offset: {x: 0.094631195, y: -0.39427757}
+  m_Size: {x: 0.96803665, y: 1.4655867}
   m_Direction: 0
 --- !u!50 &3001023821200617097
 Rigidbody2D:
@@ -401,8 +401,8 @@ MonoBehaviour:
   deathEff: {fileID: 8154724476448960517, guid: a586403b38c8684488139d4f5c5d7b8e,
     type: 3}
   numberDistanceForMove: 7
-  numberDistanceForShoot: 3
-  numberDistanceForMele: 1
+  numberDistanceForShoot: 6
+  numberDistanceForMelee: 1
 --- !u!114 &3001023821200617100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,7 +421,7 @@ MonoBehaviour:
   GroundCollisionDistance: 0.2
   FrontCollisionDistance: 0.2
   needDebugDrawLine: 0
-  speed: 5
+  speed: 4
   jumpForce: 150
 --- !u!114 &3001023821200617090
 MonoBehaviour:
@@ -462,7 +462,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3001023821327099109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.21, y: 0.19, z: 0}
+  m_LocalPosition: {x: -1.2, y: 0.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3001023821200617096}

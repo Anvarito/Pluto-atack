@@ -11,7 +11,13 @@ public class SpawnerEnemy : MonoBehaviour
 
     void Start()
     {
-
+        int t = 0;
+        while(t < transform.childCount)//находим все дочерние обьекты и помещаем их в список
+        {
+            spawnPoints.Add(transform.GetChild(t));
+            t++;
+        }
+       // print(spawnPoints.Count);
     }
 
     // Update is called once per frame
@@ -25,14 +31,21 @@ public class SpawnerEnemy : MonoBehaviour
         {
             foreach (Transform point in spawnPoints)
             {
-                int enemyNumber=0;
+                int enemyNumber = 0;
 
-                if (point.tag == "shootingEnemy")
-                    enemyNumber = 0;
-                if (point.tag == "meleeEnemy")
-                    enemyNumber = 1;
-
-
+                string tag = point.tag;
+                switch (tag)
+                {
+                    case "shootingEnemy":
+                        enemyNumber = 0;
+                        break;
+                    case "meleeEnemy":
+                        enemyNumber = 1;
+                        break;
+                    default:
+                        enemyNumber = 0;
+                        break;
+                }
                 Spawn(AImanager.StaticEnemyList[enemyNumber], point.transform.position, point.transform.rotation);
             }
             Destroy(gameObject);

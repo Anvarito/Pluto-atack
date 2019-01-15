@@ -15,9 +15,9 @@ public class Ai_Enemy : MonoBehaviour
     public bool meleeAllow = false;//позволен ближний бой
 
 
-    public MoveEnemy MOVE;
-    public ShootingEnemy SHOOT;
-    public MeleeEnemy MELEE;
+    MoveEnemy MOVE;
+    ShootingEnemy SHOOT;
+    MeleeEnemy MELEE;
     public float HP = 5;
     public SpriteRenderer deathEff;
 
@@ -30,13 +30,13 @@ public class Ai_Enemy : MonoBehaviour
 
     public float numberDistanceForMove = 7; //это расстояние для начала реагирования на игрока, вне этого диапазона АИ не будет ничего делать
     public float numberDistanceForShoot = 3;//расстояние для стрельбы
-    public float numberDistanceForMele = 1;//расстояние для милишной атаки
+    public float numberDistanceForMelee = 1;//расстояние для милишной атаки
 
 
     void Start()
     {
         AImanager.AIlist.Add(this);//this или getComponnent?
-
+        gameObject.name += " " + Random.Range(0,100);
         MOVE = GetComponent<MoveEnemy>();
         SHOOT = GetComponent<ShootingEnemy>();
         MELEE = GetComponent<MeleeEnemy>();
@@ -83,7 +83,7 @@ public class Ai_Enemy : MonoBehaviour
         }
         else if (meleeAllow)
         {
-           // print("i melee");
+            print("i melee");
             MOVE.Turn(Dot);
             try
             {
@@ -92,7 +92,7 @@ public class Ai_Enemy : MonoBehaviour
             }
             catch
             {
-              //  print(gameObject.name + ": i cant melee");
+                print(gameObject.name + ": i cant melee");
             }
         }
         else

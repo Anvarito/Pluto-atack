@@ -38,10 +38,10 @@ public class AImanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (AIlist.Count != 0)
-            print(AIlist.Count);
-        else
-            print("Ailist is clear");
+        //if (AIlist.Count != 0)
+        //    print(AIlist.Count);
+        //else
+        //    print("AI list is clear");
 
 
         foreach (Ai_Enemy AI in AIlist)
@@ -52,19 +52,30 @@ public class AImanager : MonoBehaviour
             AI.DirectionToPlayer = DirectionToPlayer();
 
 
-            if (DistanceToPlayer() <= AI.numberDistanceForMove && DistanceToPlayer() >= AI.numberDistanceForShoot)
+            if (DistanceToPlayer() <= AI.numberDistanceForMove &&
+                DistanceToPlayer() >= AI.numberDistanceForShoot)
             {
                 AI.moveAllow = true;
                 AI.shootAllow = false;
                 AI.meleeAllow = false;
             }
-            if (DistanceToPlayer() <= AI.numberDistanceForShoot)
+
+            if (DistanceToPlayer() <= AI.numberDistanceForShoot &&
+                DistanceToPlayer() >= AI.numberDistanceForMelee &&
+                RayToPlayer() == "Player")
             {
                 AI.moveAllow = false;
                 AI.shootAllow = true;
                 AI.meleeAllow = false;
             }
-            if (DistanceToPlayer() <= AI.numberDistanceForMele)
+            else
+            {
+                AI.moveAllow = true;
+                AI.shootAllow = false;
+                AI.meleeAllow = false;
+            }
+
+            if (DistanceToPlayer() <= AI.numberDistanceForMelee)
             {
                 AI.moveAllow = false;
                 AI.shootAllow = false;
@@ -91,4 +102,20 @@ public class AImanager : MonoBehaviour
         var distance = Vector2.Distance(_positionAI, _positionPlayer);
         return distance;
     }
+    public string RayToPlayer()
+    {
+        var defaultMask = LayerMask.GetMask("Default");
+        RaycastHit2D hit = Physics2D.Raycast(_positionAI, DirectionToPlayer());
+
+       // print(hit.transform.name);
+        if (hit.transform.tag != "Player")
+        {
+            return hit.collider.tag;
+        }
+        else
+        {
+           // Debug.DrawLine(_positionAI, _positionPlayer, Color.blue);
+            return "Player";
+        }
+    }//луч к игроку
 }

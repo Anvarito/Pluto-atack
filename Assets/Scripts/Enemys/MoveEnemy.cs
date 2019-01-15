@@ -34,7 +34,7 @@ public class MoveEnemy : MonoBehaviour
 
     private float JumpTime = 0.5f; //время через которое во время прыжка может снова идти вперёд AI
 
-    bool contactToPlayer = false;
+    //bool contactToPlayer = false;
 
     void Start()
     {
