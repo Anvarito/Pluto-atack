@@ -36,10 +36,10 @@ public class SpawnerEnemy : MonoBehaviour
                 string tag = point.tag;
                 switch (tag)
                 {
-                    case "shootingEnemy":
+                    case "shootingEnemySpawner":
                         enemyNumber = 0;
                         break;
-                    case "meleeEnemy":
+                    case "meleeEnemySpawner":
                         enemyNumber = 1;
                         break;
                     default:

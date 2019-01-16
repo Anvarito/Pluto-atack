@@ -5,28 +5,37 @@ using UnityEngine;
 public class MeleeEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject punchPoint;
+    public GameObject PUNCH;
   //  public Transform startPointPush;
     public Transform endPointPush;
     public float PunchForce = 70;
     public int Damage = 1;
 
-    Vector2 S;
-    Vector2 E;
-   // Rigidbody2D _rigidbody;
+   // Vector2 start;
+   // Vector2 end;
+
+    Vector2 start
+    {
+        get { return gameObject.transform.position; }
+    }
+    Vector2 end
+    {
+        get { return endPointPush.position; }
+    }
+
     Animator _animator;
 
     void Start()
     {
-        punchPoint.GetComponent<Rigidbody2D>().mass = PunchForce;
+        PUNCH.GetComponent<Rigidbody2D>().mass = PunchForce;
         _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        S = gameObject.transform.position;
-        E = endPointPush.position;
+       // start = gameObject.transform.position;
+      //  end = endPointPush.position;
     }
 
     public void Atack()
@@ -38,15 +47,23 @@ public class MeleeEnemy : MonoBehaviour
     {
         
        // punchPoint.transform.position = S;
-        punchPoint.GetComponent<CircleCollider2D>().enabled = true;
-        punchPoint.transform.position = Vector3.Lerp(S,E,1f);
+        PUNCH.GetComponent<CircleCollider2D>().enabled = true;
+        PUNCH.transform.position = Vector3.Lerp(start,end,1f);
 
     }
 
     public void StopPunch()
     {
-        punchPoint.GetComponent<CircleCollider2D>().enabled = false;
-        punchPoint.transform.position = S;
+        PUNCH.GetComponent<CircleCollider2D>().enabled = false;
+        PUNCH.transform.position = start;
         //  punchPoint.SetActive(false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "Player")
+        {
+            PUNCH.transform.position = start;
+        }
     }
 }

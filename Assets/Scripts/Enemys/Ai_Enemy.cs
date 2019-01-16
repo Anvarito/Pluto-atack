@@ -35,8 +35,24 @@ public class Ai_Enemy : MonoBehaviour
 
     void Start()
     {
-        AImanager.AIlist.Add(this);//this или getComponnent?
-        gameObject.name += " " + Random.Range(0,100);
+        Color color = new Color(0,0,0);
+        AImanager.AIlist.Add(this);//this или getComponnent? передаём ссылку на экземпляр в менеджер
+
+        if (gameObject.tag == "meleeEnemy")
+        {
+            gameObject.name = "Monster M - " + Random.Range(0, 100);
+            color = new Color(Random.Range(0f, 0.7f), Random.Range(0.5f, 1f), Random.Range(0f, 0.7f));
+        }
+        else if (gameObject.tag == "shootingEnemy")
+        {
+            gameObject.name = "Monster S - " + Random.Range(0, 100);
+            color = new Color(Random.Range(0f, 0.7f), Random.Range(0f, 0.7f), Random.Range(0.5f, 1f));
+        }
+
+
+
+        gameObject.GetComponent<SpriteRenderer>().color = color;
+
         MOVE = GetComponent<MoveEnemy>();
         SHOOT = GetComponent<ShootingEnemy>();
         MELEE = GetComponent<MeleeEnemy>();
@@ -56,7 +72,7 @@ public class Ai_Enemy : MonoBehaviour
 
         if (moveAllow && !shootAllow && !meleeAllow)
         {
-           // print("i run");
+            // print("i run");
             try
             {
                 MOVE.Turn(Dot);
@@ -64,12 +80,12 @@ public class Ai_Enemy : MonoBehaviour
             }
             catch
             {
-              //  print(gameObject.name + ": i cant move");
+                //  print(gameObject.name + ": i cant move");
             }
         }
         else if (shootAllow && !meleeAllow && !moveAllow)
         {
-          //  print("i shoot");
+            //  print("i shoot");
             try
             {
                 MOVE.Turn(Dot);
@@ -77,7 +93,7 @@ public class Ai_Enemy : MonoBehaviour
             }
             catch
             {
-               // print(gameObject.name + ": i cant shoot");
+                // print(gameObject.name + ": i cant shoot");
                 MOVE.Run(DirectionToPlayer);
             }
         }
@@ -93,11 +109,12 @@ public class Ai_Enemy : MonoBehaviour
             catch
             {
                 print(gameObject.name + ": i cant melee");
+                SHOOT.Shoot(DirectionToPlayer);
             }
         }
         else
         {
-           // print("i stay");
+            // print("i stay");
             try
             {
 
@@ -105,7 +122,7 @@ public class Ai_Enemy : MonoBehaviour
             }
             catch
             {
-               // print(gameObject.name + ": i cant move");
+                // print(gameObject.name + ": i cant move");
             }
         }
     }
@@ -119,7 +136,7 @@ public class Ai_Enemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // print("hit");
-        if(collision.transform.tag == "bullet")
+        if (collision.transform.tag == "bullet")
         {
             HP -= collision.gameObject.GetComponent<Bullet>().Damage;
         }

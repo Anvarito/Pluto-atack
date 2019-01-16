@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147342298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.427, y: -1.0740001, z: 0}
+  m_LocalPosition: {x: 0.46, y: -0.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3001023821200617096}
@@ -38,7 +38,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147342298}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -104,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567340605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.36299965, y: 0.03, z: 0}
+  m_LocalPosition: {x: -0.29499957, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3001023821200617096}
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567340605}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3001023820265232618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.358, y: -1.08, z: 0}
+  m_LocalPosition: {x: -0.24, y: -0.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3001023821200617096}
@@ -196,7 +196,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3001023820265232618}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -253,9 +253,9 @@ GameObject:
   - component: {fileID: 3001023821200617103}
   - component: {fileID: 3001023821200617100}
   - component: {fileID: 3001023821200617090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy1
-  m_TagString: enemy
+  m_TagString: shootingEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -394,9 +394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5c0bb66d16a3241b6726ba88216286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MOVE: {fileID: 3001023821200617100}
-  SHOOT: {fileID: 3001023821200617090}
-  MELEE: {fileID: 0}
   HP: 5
   deathEff: {fileID: 8154724476448960517, guid: a586403b38c8684488139d4f5c5d7b8e,
     type: 3}
@@ -418,9 +415,9 @@ MonoBehaviour:
   groundTrigger: {fileID: 3001023820265232619}
   groundTriggerSecond: {fileID: 147342299}
   forwardTrigger: {fileID: 567340606}
-  GroundCollisionDistance: 0.2
-  FrontCollisionDistance: 0.2
-  needDebugDrawLine: 0
+  GroundCollisionDistance: 0.5
+  FrontCollisionDistance: 0.5
+  needDebugDrawLine: 1
   speed: 4
   jumpForce: 150
 --- !u!114 &3001023821200617090

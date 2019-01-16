@@ -11,6 +11,8 @@ TagManager:
   - shootingEnemy
   - punch
   - meleeEnemy
+  - meleeEnemySpawner
+  - shootingEnemySpawner
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Monster
+  - Punch
   - 
   - 
   - 
