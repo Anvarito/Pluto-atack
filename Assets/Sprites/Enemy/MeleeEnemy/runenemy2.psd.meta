@@ -1,17 +1,13 @@
 fileFormatVersion: 2
-guid: 5f11101f9af4c424aaa1d003e821ccf4
+guid: 6f98989f34c231b41b686c80e6d86178
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hit enemy blood effect_0
-    21300002: hit enemy blood effect_1
-    21300004: hit enemy blood effect_2
-    21300006: hit enemy blood effect_3
-    21300008: hit enemy blood effect_4
-    21300010: hit enemy blood effect_5
-    21300012: hit enemy blood effect_6
-    21300014: hit enemy blood effect_7
-    21300016: hit enemy blood effect_8
-    21300018: hit enemy blood effect_9
+    21300000: runenemy2_0
+    21300002: runenemy2_1
+    21300004: runenemy2_2
+    21300006: runenemy2_3
+    21300008: runenemy2_4
+    21300010: runenemy2_5
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -46,7 +42,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -105,201 +101,121 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hit enemy blood effect_0
+      name: runenemy2_0
       rect:
         serializedVersion: 2
         x: 1
         y: 0
-        width: 30
-        height: 16
-      alignment: 9
-      pivot: {x: 0.20891546, y: 0.46361423}
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3871d3931a0ad074daaca1f87517d343
+      spriteID: 73a635566e7c02d42a9eb14b0c78cdf5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_1
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 0
-        width: 30
-        height: 16
-      alignment: 9
-      pivot: {x: 0.218618, y: 0.4999998}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de8c72e616329054a932dd2ca66be6fa
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hit enemy blood effect_2
+      name: runenemy2_1
       rect:
         serializedVersion: 2
         x: 65
         y: 0
-        width: 30
-        height: 16
-      alignment: 9
-      pivot: {x: 0.21861775, y: 0.481807}
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bc5077f18459d6468fecf92a9cf41dd
+      spriteID: 7377a4023cd3c564b942c500e932a3ff
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_3
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 0
-        width: 30
-        height: 16
-      alignment: 9
-      pivot: {x: 0.257429, y: 0.481807}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 254ffcd5bc0d0104aadfb5c9d480873e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hit enemy blood effect_4
+      name: runenemy2_2
       rect:
         serializedVersion: 2
         x: 129
         y: 0
-        width: 30
-        height: 16
-      alignment: 9
-      pivot: {x: 0.3059428, y: 0.4999998}
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9240a0f7cfb549f479ef3945d716d345
+      spriteID: 8e0bca9ef8a2bd3429e4684d26b57d3d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_5
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 0
-        width: 30
-        height: 16
-      alignment: 9
-      pivot: {x: 0.23802286, y: 0.4999998}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bffc7c18cb99cf0488b08b7c1fa82e70
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hit enemy blood effect_6
+      name: runenemy2_3
       rect:
         serializedVersion: 2
         x: 193
         y: 0
-        width: 30
-        height: 16
-      alignment: 9
-      pivot: {x: 0.26713103, y: 0.46361423}
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5289e2b255d73ab47a3d03f038d3bce5
+      spriteID: 8021013e05825ff4bab675cc8472e683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_7
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 0
-        width: 30
-        height: 16
-      alignment: 9
-      pivot: {x: 0.24772543, y: 0.481807}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f04276785bc0534f9ef06edacc9ed2d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hit enemy blood effect_8
+      name: runenemy2_4
       rect:
         serializedVersion: 2
         x: 257
         y: 0
-        width: 30
-        height: 16
-      alignment: 9
-      pivot: {x: 0.29623923, y: 0.481807}
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cf715abc698e2b49b654995db52e97e
+      spriteID: 3239e7133c61deb459930f17f88f59b3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_9
+      name: runenemy2_5
       rect:
         serializedVersion: 2
-        x: 289
+        x: 321
         y: 0
-        width: 30
-        height: 16
-      alignment: 9
-      pivot: {x: 0.2477244, y: 0.4999998}
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef7e7407173066e4e96c44f79cd0dc6d
+      spriteID: 255b2dd34e5bcd749904ff3c24f3aeaa
       vertices: []
       indices: 
       edges: []
@@ -307,7 +223,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 65db6324c1af7d14d91cbf2dd36d8b93
+    spriteID: 869878d7e2a17cd44b1196f6c34b230f
     vertices: []
     indices: 
     edges: []

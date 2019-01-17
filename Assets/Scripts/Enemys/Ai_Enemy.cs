@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(MoveEnemy))]
 public class Ai_Enemy : MonoBehaviour
 {
 
@@ -14,11 +15,12 @@ public class Ai_Enemy : MonoBehaviour
     [System.NonSerialized]
     public bool meleeAllow = false;//позволен ближний бой
 
-
+    Rigidbody2D _rigidbody;
     MoveEnemy MOVE;
     ShootingEnemy SHOOT;
     MeleeEnemy MELEE;
-    public float HP = 5;
+    public float HP = 3;
+    public float mass = 50;
     public SpriteRenderer deathEff;
 
     [System.NonSerialized]
@@ -35,24 +37,10 @@ public class Ai_Enemy : MonoBehaviour
 
     void Start()
     {
-        Color color = new Color(0,0,0);
         AImanager.AIlist.Add(this);//this или getComponnent? передаём ссылку на экземпляр в менеджер
-
-        if (gameObject.tag == "meleeEnemy")
-        {
-            gameObject.name = "Monster M - " + Random.Range(0, 100);
-            color = new Color(Random.Range(0f, 0.7f), Random.Range(0.5f, 1f), Random.Range(0f, 0.7f));
-        }
-        else if (gameObject.tag == "shootingEnemy")
-        {
-            gameObject.name = "Monster S - " + Random.Range(0, 100);
-            color = new Color(Random.Range(0f, 0.7f), Random.Range(0f, 0.7f), Random.Range(0.5f, 1f));
-        }
-
-
-
-        gameObject.GetComponent<SpriteRenderer>().color = color;
-
+        gameObject.name = "Monster " + Random.Range(0, 100);
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody.mass = mass;
         MOVE = GetComponent<MoveEnemy>();
         SHOOT = GetComponent<ShootingEnemy>();
         MELEE = GetComponent<MeleeEnemy>();
@@ -72,15 +60,15 @@ public class Ai_Enemy : MonoBehaviour
 
         if (moveAllow && !shootAllow && !meleeAllow)
         {
-            // print("i run");
             try
             {
+              //  print(gameObject.name + "i run");
                 MOVE.Turn(Dot);
                 MOVE.Run(DirectionToPlayer);
             }
             catch
             {
-                //  print(gameObject.name + ": i cant move");
+                print(gameObject.name + ": i cant move");
             }
         }
         else if (shootAllow && !meleeAllow && !moveAllow)
@@ -99,24 +87,24 @@ public class Ai_Enemy : MonoBehaviour
         }
         else if (meleeAllow)
         {
-            print("i melee");
             MOVE.Turn(Dot);
             try
             {
 
+              //  print(gameObject.name + "i melee");
                 MELEE.Atack();
             }
             catch
             {
-                print(gameObject.name + ": i cant melee");
-                SHOOT.Shoot(DirectionToPlayer);
+               // print(gameObject.name + ": i cant melee");
+                MOVE.Stay();
             }
         }
         else
         {
-            // print("i stay");
             try
             {
+               // print(gameObject.name + "i stay");
 
                 MOVE.Stay();
             }

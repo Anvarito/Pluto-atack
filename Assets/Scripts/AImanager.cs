@@ -24,10 +24,10 @@ public class AImanager : MonoBehaviour
     } //позиция противника
 
     [System.NonSerialized]
-    public static List<Ai_Enemy> AIlist = new List<Ai_Enemy>();
+    public static List<Ai_Enemy> AIlist = new List<Ai_Enemy>();//сюда собираются все АИ которые в данный момент есть в игре
 
     public static List<GameObject> StaticEnemyList = new List<GameObject>();
-    public List<GameObject> EnemyList = new List<GameObject>();
+    public List<GameObject> EnemyList = new List<GameObject>();//тут список всех типо врагов
 
     void Start()
     {
@@ -114,7 +114,7 @@ public class AImanager : MonoBehaviour
         }
         else
         {
-           // Debug.DrawLine(_positionAI, _positionPlayer, Color.blue);
+            Debug.DrawLine(_positionAI, _positionPlayer, Color.blue);
             return "Player";
         }
     }//луч к игроку

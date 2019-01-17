@@ -2,25 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Ai_Enemy))]
 public class MeleeEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject PUNCH;
-  //  public Transform startPointPush;
-    public Transform endPointPush;
+    //  public Transform startPointPush;
     public float PunchForce = 70;
     public int Damage = 1;
 
-   // Vector2 start;
-   // Vector2 end;
+    bool PunchStarted = false;
+    float time = 0;
+    // Vector2 start;
+    // Vector2 end;
 
     Vector2 start
     {
-        get { return gameObject.transform.position; }
-    }
-    Vector2 end
-    {
-        get { return endPointPush.position; }
+        get { return PUNCH.transform.position; }
     }
 
     Animator _animator;
@@ -34,8 +32,18 @@ public class MeleeEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // start = gameObject.transform.position;
-      //  end = endPointPush.position;
+
+        if (PunchStarted)
+            time += Time.deltaTime;
+
+        if (time >= 0.2f)
+        {
+            PUNCH.GetComponent<CapsuleCollider2D>().enabled = false;
+            PunchStarted = false;
+            time = 0;
+        }
+        // start = gameObject.transform.position;
+        //  end = endPointPush.position;
     }
 
     public void Atack()
@@ -45,25 +53,27 @@ public class MeleeEnemy : MonoBehaviour
 
     public void Punch()
     {
-        
-       // punchPoint.transform.position = S;
-        PUNCH.GetComponent<CircleCollider2D>().enabled = true;
-        PUNCH.transform.position = Vector3.Lerp(start,end,1f);
 
-    }
-
-    public void StopPunch()
-    {
-        PUNCH.GetComponent<CircleCollider2D>().enabled = false;
         PUNCH.transform.position = start;
-        //  punchPoint.SetActive(false);
+        PUNCH.GetComponent<CapsuleCollider2D>().enabled = true;
+        PunchStarted = true;
+        //PUNCH.transform.position = Vector3.Lerp(start, end, 1f);
+       
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.transform.tag == "Player")
-        {
-            PUNCH.transform.position = start;
-        }
-    }
+    //public void StopPunch()
+    //{
+    //    PUNCH.GetComponent<CapsuleCollider2D>().enabled = false;
+    //   // PUNCH.transform.position = start;
+    //    //  punchPoint.SetActive(false);
+    //}
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    //if (collision.transform.tag == "Player")
+    //    //{
+    //    PUNCH.GetComponent<CapsuleCollider2D>().enabled = false;
+    //    //PUNCH.transform.position = start;
+    //    //}
+    //}
 }

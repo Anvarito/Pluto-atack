@@ -13,15 +13,15 @@ public class MoveEnemy : MonoBehaviour
     Animator _animator;
     // Rigidbody2D _rigidbody;
     // Animator _animation;
-    public Transform groundTrigger;
-    public Transform groundTriggerSecond;
-    public Transform forwardTrigger;
+    public Transform front_ground_trigger;
+    public Transform back_ground_trigger;
+    public Transform front_trigger;
     public float GroundCollisionDistance = 0.2f;
     public float FrontCollisionDistance = 0.2f;
     public bool needDebugDrawLine = false;
 
     public float speed = 3;
-    public float jumpForce;
+    public float jumpForce = 150;
 
     [System.NonSerialized]
     public bool isEnemyRight;
@@ -48,6 +48,10 @@ public class MoveEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //print(Is_Ground_Collision());
+        //print(Is_Front_Collision());
+
         if (timerstarted)
             timer += Time.deltaTime;
 
@@ -88,29 +92,29 @@ public class MoveEnemy : MonoBehaviour
 
     float position_x_FrontgroundTriger
     {
-        get { return groundTrigger.position.x; }
+        get { return front_ground_trigger.position.x; }
     } //икс и игрик позиция первого тригера для обнаружения препятствий
     float position_y_FrontgroundTriger
     {
-        get { return groundTrigger.position.y; }
+        get { return front_ground_trigger.position.y; }
     }
 
     float position_x_BackGroundTriger
     {
-        get { return groundTriggerSecond.position.x; }
+        get { return back_ground_trigger.position.x; }
     } //икс и игрик позиция второго тригера для обнаружения препятствий
     float position_y_BackGroundTriger
     {
-        get { return groundTriggerSecond.position.y; }
+        get { return back_ground_trigger.position.y; }
     }
 
     float position_x_forwardTrigger
     {
-        get { return forwardTrigger.position.x; }
+        get { return front_trigger.position.x; }
     } //икс и игрик позиция переднего тригера для обнаружения препятствий
     float position_y_forwardTrigger
     {
-        get { return forwardTrigger.position.y; }
+        get { return front_trigger.position.y; }
     }
 
     public bool Is_Ground_Collision()
@@ -123,8 +127,8 @@ public class MoveEnemy : MonoBehaviour
         // var distance = 0.2f;
 
         var defaultMask = LayerMask.GetMask("Default");
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, GroundCollisionDistance, defaultMask);
-        RaycastHit2D second_hit = Physics2D.Raycast(second_origin, direction, GroundCollisionDistance, defaultMask);
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, GroundCollisionDistance);
+        RaycastHit2D second_hit = Physics2D.Raycast(second_origin, direction, GroundCollisionDistance);
         // print(hit.collider.name);
         if (needDebugDrawLine == true)
         {
@@ -132,25 +136,28 @@ public class MoveEnemy : MonoBehaviour
             Debug.DrawRay(second_origin, direction * GroundCollisionDistance, Color.green, 0.25f);
         }
 
-        try
+        //try
+        //{
+        if (hit.collider != null || second_hit.collider != null)
+        //if (hit.collider != null)
         {
-            if (hit.collider != null || second_hit.collider != null)
+            hitGround = true;
             //if (hit.collider != null)
-            {
-                hitGround = true;
-                //  print("ground coll =" + hit.collider.name);
-            }
-            else
-            {
-                hitGround = false;
-                //  print("null obj of down");
-            }
-            return hitGround;
+            //    print(gameObject.name + " ground coll = " + hit.collider.name);
+            //if (second_hit.collider != null)
+            //    print(gameObject.name + " second ground coll = " + second_hit.collider.name);
         }
-        catch
+        else
         {
-            return hitGround = false;
+            hitGround = false;
+            //  print("null obj of down");
         }
+        return hitGround;
+        //}
+        //catch
+        //{
+        //    return hitGround = false;
+        //}
     }//проверка на наличие земли под ногами
     public bool Is_Front_Collision()
     {
@@ -161,8 +168,8 @@ public class MoveEnemy : MonoBehaviour
         var direction = isEnemyRight ? Vector2.right : Vector2.left; //new Vector2(directionX, position_y_groundTriger);
 
         var defaultMask = LayerMask.GetMask("Default");
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, FrontCollisionDistance, defaultMask);
-        RaycastHit2D second_hit = Physics2D.Raycast(second_origin, direction, FrontCollisionDistance, defaultMask);
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, FrontCollisionDistance);
+        RaycastHit2D second_hit = Physics2D.Raycast(second_origin, direction, FrontCollisionDistance);
 
         if (needDebugDrawLine == true)
         {
@@ -175,7 +182,10 @@ public class MoveEnemy : MonoBehaviour
             if (hit.collider != null || second_hit.collider != null)
             {
                 hitFront = true;
-                //  print("forward coll =" + hit.collider.name);
+                //if (hit.collider != null)
+                //    print(gameObject.name + " front coll = " + hit.collider.name);
+                //if (second_hit.collider != null)
+                //    print(gameObject.name + " top front coll = " + hit.collider.name);
             }
             else
             {
@@ -189,7 +199,7 @@ public class MoveEnemy : MonoBehaviour
             return hitFront = false;
         }
     }//проверка на наличие препятствия впереди
-   
+
 
     public void Run(Vector2 DirectionToPlayer)
     {
@@ -201,9 +211,25 @@ public class MoveEnemy : MonoBehaviour
             float direction = dir.x;
             _rigidbody.velocity = new Vector2(direction * speed, 0);
         }
-
-        if(Is_Front_Collision() && Is_Ground_Collision() )
+        else
         {
+          //  print(gameObject.name + " i cant run");
+            //print(gameObject.name + " - " +Is_Ground_Collision());
+            // Jump();
+            _animator.Play("Stay");
+
+            if (Is_Front_Collision() && Is_Ground_Collision())
+            {
+                Jump();
+            }
+
+        }
+
+
+
+        if (_rigidbody.IsSleeping())
+        {
+          //  print("sleep rb");
             Jump();
         }
 
@@ -228,10 +254,10 @@ public class MoveEnemy : MonoBehaviour
     public void Jump()
     {
         timerstarted = true;
-       // Debug.Log("I before jumping");
+        // Debug.Log("I before jumping");
         // print(jumpForce);
         _rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-       // Debug.Log("I jumped already");
+        // Debug.Log("I jumped already");
     }//метод прыжка
 
     public void Stay()
@@ -239,7 +265,16 @@ public class MoveEnemy : MonoBehaviour
         _animator.Play("Stay");
     }//метод что бы просто стоять
 
-   
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "meleeEnemy" && Is_Front_Collision())
+        {
+          //  print("!!!");
+            Jump();
+        }
+    }
+
+
 
 
 }

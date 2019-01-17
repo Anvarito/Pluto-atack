@@ -1,17 +1,19 @@
 fileFormatVersion: 2
-guid: 5f11101f9af4c424aaa1d003e821ccf4
+guid: fe49b479ebd55b34bbcf10e5b59f39ff
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hit enemy blood effect_0
-    21300002: hit enemy blood effect_1
-    21300004: hit enemy blood effect_2
-    21300006: hit enemy blood effect_3
-    21300008: hit enemy blood effect_4
-    21300010: hit enemy blood effect_5
-    21300012: hit enemy blood effect_6
-    21300014: hit enemy blood effect_7
-    21300016: hit enemy blood effect_8
-    21300018: hit enemy blood effect_9
+    21300000: spawnenemy2_0
+    21300002: spawnenemy2_1
+    21300004: spawnenemy2_2
+    21300006: spawnenemy2_3
+    21300008: spawnenemy2_4
+    21300010: spawnenemy2_5
+    21300012: spawnenemy2_6
+    21300014: spawnenemy2_7
+    21300016: spawnenemy2_8
+    21300018: spawnenemy2_9
+    21300020: spawnenemy2_10
+    21300022: spawnenemy2_11
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -46,7 +48,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -105,201 +107,241 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hit enemy blood effect_0
+      name: spawnenemy2_0
       rect:
         serializedVersion: 2
         x: 1
         y: 0
-        width: 30
-        height: 16
+        width: 65
+        height: 80
       alignment: 9
-      pivot: {x: 0.20891546, y: 0.46361423}
+      pivot: {x: 0.51345766, y: 0.3301945}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3871d3931a0ad074daaca1f87517d343
+      spriteID: b9da61528096e074086033f3a87ce33a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_1
+      name: spawnenemy2_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 68
         y: 0
-        width: 30
-        height: 16
+        width: 65
+        height: 80
       alignment: 9
-      pivot: {x: 0.218618, y: 0.4999998}
+      pivot: {x: 0.51345766, y: 0.3301945}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de8c72e616329054a932dd2ca66be6fa
+      spriteID: 329a001cbd23c8647a777007c16cd4c5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_2
+      name: spawnenemy2_2
       rect:
         serializedVersion: 2
-        x: 65
+        x: 135
         y: 0
-        width: 30
-        height: 16
+        width: 65
+        height: 80
       alignment: 9
-      pivot: {x: 0.21861775, y: 0.481807}
+      pivot: {x: 0.51345766, y: 0.3301945}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bc5077f18459d6468fecf92a9cf41dd
+      spriteID: bbacbe00f000b6e4c91e641e76bb2e16
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_3
+      name: spawnenemy2_3
       rect:
         serializedVersion: 2
-        x: 97
+        x: 202
         y: 0
-        width: 30
-        height: 16
+        width: 65
+        height: 80
       alignment: 9
-      pivot: {x: 0.257429, y: 0.481807}
+      pivot: {x: 0.50843835, y: 0.3301945}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 254ffcd5bc0d0104aadfb5c9d480873e
+      spriteID: f7d7d88a0a125304088253ec3dae025b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_4
+      name: spawnenemy2_4
       rect:
         serializedVersion: 2
-        x: 129
+        x: 269
         y: 0
-        width: 30
-        height: 16
+        width: 65
+        height: 80
       alignment: 9
-      pivot: {x: 0.3059428, y: 0.4999998}
+      pivot: {x: 0.51345766, y: 0.3301945}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9240a0f7cfb549f479ef3945d716d345
+      spriteID: d45d0cb548b511f49b57d076b6e1bf31
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_5
+      name: spawnenemy2_5
       rect:
         serializedVersion: 2
-        x: 161
+        x: 336
         y: 0
-        width: 30
-        height: 16
+        width: 65
+        height: 80
       alignment: 9
-      pivot: {x: 0.23802286, y: 0.4999998}
+      pivot: {x: 0.51345766, y: 0.3301945}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bffc7c18cb99cf0488b08b7c1fa82e70
+      spriteID: 77e6f4a9d2f24bb45b80e944bfcd8af0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_6
+      name: spawnenemy2_6
       rect:
         serializedVersion: 2
-        x: 193
+        x: 403
         y: 0
-        width: 30
-        height: 16
+        width: 65
+        height: 80
       alignment: 9
-      pivot: {x: 0.26713103, y: 0.46361423}
+      pivot: {x: 0.51345766, y: 0.3301945}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5289e2b255d73ab47a3d03f038d3bce5
+      spriteID: 6c37d96fb50877d418b2a13b29408509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_7
+      name: spawnenemy2_7
       rect:
         serializedVersion: 2
-        x: 225
+        x: 470
         y: 0
-        width: 30
-        height: 16
+        width: 65
+        height: 80
       alignment: 9
-      pivot: {x: 0.24772543, y: 0.481807}
+      pivot: {x: 0.51345766, y: 0.3301945}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f04276785bc0534f9ef06edacc9ed2d
+      spriteID: ee7ec964858329541870743d6bb76969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_8
+      name: spawnenemy2_8
       rect:
         serializedVersion: 2
-        x: 257
+        x: 537
         y: 0
-        width: 30
-        height: 16
+        width: 65
+        height: 80
       alignment: 9
-      pivot: {x: 0.29623923, y: 0.481807}
+      pivot: {x: 0.51345766, y: 0.3301945}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cf715abc698e2b49b654995db52e97e
+      spriteID: 4b582c0cb118e624a96b7242e24edf52
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_9
+      name: spawnenemy2_9
       rect:
         serializedVersion: 2
-        x: 289
+        x: 604
         y: 0
-        width: 30
-        height: 16
+        width: 65
+        height: 80
       alignment: 9
-      pivot: {x: 0.2477244, y: 0.4999998}
+      pivot: {x: 0.51345766, y: 0.3301945}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef7e7407173066e4e96c44f79cd0dc6d
+      spriteID: e58cffa39c7a3474f9bc3a8301befa17
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spawnenemy2_10
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 0
+        width: 65
+        height: 80
+      alignment: 9
+      pivot: {x: 0.51345766, y: 0.3301945}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b57d23eaac94a6c4cb860f5f225f80d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spawnenemy2_11
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 0
+        width: 65
+        height: 80
+      alignment: 9
+      pivot: {x: 0.51345766, y: 0.3301945}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7248da4f98211f14783f7f5beb8036ab
       vertices: []
       indices: 
       edges: []
@@ -307,7 +349,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 65db6324c1af7d14d91cbf2dd36d8b93
+    spriteID: 675b349922fa1e2459eb6ed59dc6886b
     vertices: []
     indices: 
     edges: []

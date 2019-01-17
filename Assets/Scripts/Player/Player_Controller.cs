@@ -221,7 +221,7 @@ public class Player_Controller : MonoBehaviour
         //   print("!!!!");
         if (collision.transform.tag == "punch")
         {
-            print(HP);
+           // print(HP);
             HP -= collision.transform.parent.GetComponent<MeleeEnemy>().Damage;
         }
     }

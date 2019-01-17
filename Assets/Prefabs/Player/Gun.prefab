@@ -194,5 +194,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc: {fileID: 0}
   point_for_gun: {fileID: 0}
-  bullet: {fileID: 415324465905624898, guid: bed34ae0c7da1994fa1a7c979b7104d2, type: 3}
+  bullet: {fileID: 2689738781510597599, guid: edfa8c22f3c965c49b404cba2b92c430, type: 3}
   point_fire: {fileID: 7719227822225512044}
