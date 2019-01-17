@@ -6,8 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player_Controller : MonoBehaviour
 {
-    private Rigidbody2D Rb;
+    private Rigidbody2D _rb;
     private Animator _animation;
+    private SpriteRenderer _spriterenderer;
 
     public float runSpeed = 7;
     public float jumpForce = 7;
@@ -71,11 +72,15 @@ public class Player_Controller : MonoBehaviour
 
     bool moving;
 
+    bool hasHit = false;
+    float timerHit = 0;
+
     private void Start()
     {
         isPlayerRight = true;
-        Rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
         _animation = GetComponent<Animator>();
+        _spriterenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -94,6 +99,19 @@ public class Player_Controller : MonoBehaviour
         }
         else
             _animation.Play("Idle");
+
+
+        if (hasHit) //таймер для подсчёта времени после удара
+        {
+            timerHit += Time.deltaTime;
+        }
+        if (timerHit >= 0.1)//спустя это время вернётся обычный цвет персонажа
+        {
+            _spriterenderer.color = new Color(1,1,1);
+            timerHit = 0;
+        }
+
+
 
     }
 
@@ -121,7 +139,7 @@ public class Player_Controller : MonoBehaviour
         {
             Vector2 vector = Vector2.right * ax;
             float direction = vector.x;
-            Rb.velocity = new Vector2(direction * runSpeed, Rb.velocity.y);
+            _rb.velocity = new Vector2(direction * runSpeed, _rb.velocity.y);
         }
     }
 
@@ -145,7 +163,7 @@ public class Player_Controller : MonoBehaviour
     {
         if (Is_Ground_Collision())
         {
-            Rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            _rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             // _animation.Play("Jump");
         }
     }
@@ -221,8 +239,16 @@ public class Player_Controller : MonoBehaviour
         //   print("!!!!");
         if (collision.transform.tag == "punch")
         {
-           // print(HP);
+            hasHit = true;
+            print(HP);
             HP -= collision.transform.parent.GetComponent<MeleeEnemy>().Damage;
+            ChangeColorDamage();
         }
+    }
+
+    void ChangeColorDamage() //от удара изменить цвет персонажа
+    {
+        Color colorDamage = new Color(1, 0, 0);
+        _spriterenderer.color = colorDamage;
     }
 }

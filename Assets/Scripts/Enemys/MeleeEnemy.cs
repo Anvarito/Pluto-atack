@@ -25,7 +25,7 @@ public class MeleeEnemy : MonoBehaviour
 
     void Start()
     {
-        PUNCH.GetComponent<Rigidbody2D>().mass = PunchForce;
+       // PUNCH.GetComponent<Rigidbody2D>().mass = PunchForce;
         _animator = GetComponent<Animator>();
     }
 

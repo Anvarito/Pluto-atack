@@ -19,7 +19,7 @@ public class MoveEnemy : MonoBehaviour
     public float GroundCollisionDistance = 0.2f;
     public float FrontCollisionDistance = 0.2f;
     public bool needDebugDrawLine = false;
-
+    public bool needSpawnAnimation = true;
     public float speed = 3;
     public float jumpForce = 150;
 
@@ -31,6 +31,7 @@ public class MoveEnemy : MonoBehaviour
     private Quaternion _directionEnemy;
     private float timer = 0;
     private bool timerstarted = false;
+    private bool StartAllow = false;
 
     private float JumpTime = 0.5f; //время через которое во время прыжка может снова идти вперёд AI
 
@@ -38,9 +39,18 @@ public class MoveEnemy : MonoBehaviour
 
     void Start()
     {
+
         _Ai = GetComponent<Ai_Enemy>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        if (needSpawnAnimation)
+        {
+            _animator.Play("Spawn");
+        }
+        else
+        {
+            StartAllow = true;
+        }
         //  _rigidbody = GetComponent<Rigidbody2D>();
         // _animation = GetComponent<Animator>();
     }
@@ -203,34 +213,37 @@ public class MoveEnemy : MonoBehaviour
 
     public void Run(Vector2 DirectionToPlayer)
     {
-        if (!Is_Front_Collision() && (Is_Ground_Collision() || (timer <= JumpTime) && timerstarted))
+        if (StartAllow)
         {
-            _animator.Play("Run");
-
-            Vector2 dir = DirectionToPlayer;
-            float direction = dir.x;
-            _rigidbody.velocity = new Vector2(direction * speed, 0);
-        }
-        else
-        {
-          //  print(gameObject.name + " i cant run");
-            //print(gameObject.name + " - " +Is_Ground_Collision());
-            // Jump();
-            _animator.Play("Stay");
-
-            if (Is_Front_Collision() && Is_Ground_Collision())
+            if (!Is_Front_Collision() && (Is_Ground_Collision() || (timer <= JumpTime) && timerstarted))
             {
-                Jump();
+                _animator.Play("Run");
+
+                Vector2 dir = DirectionToPlayer;
+                float direction = dir.x;
+                _rigidbody.velocity = new Vector2(direction * speed, 0);
+            }
+            else
+            {
+                //  print(gameObject.name + " i cant run");
+                //print(gameObject.name + " - " +Is_Ground_Collision());
+                // Jump();
+                _animator.Play("Stay");
+
+                if (Is_Front_Collision() && Is_Ground_Collision())
+                {
+                    Jump();
+                }
+
             }
 
-        }
 
 
-
-        if (_rigidbody.IsSleeping())
-        {
-          //  print("sleep rb");
-            Jump();
+            if (_rigidbody.IsSleeping())
+            {
+                //  print("sleep rb");
+                Jump();
+            }
         }
 
     }//метод движения
@@ -269,11 +282,15 @@ public class MoveEnemy : MonoBehaviour
     {
         if (collision.collider.tag == "meleeEnemy" && Is_Front_Collision())
         {
-          //  print("!!!");
             Jump();
+
         }
     }
 
+    void LetsStartAllow()
+    {
+        StartAllow = true;
+    }
 
 
 

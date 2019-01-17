@@ -39,6 +39,9 @@ public class Ai_Enemy : MonoBehaviour
     {
         AImanager.AIlist.Add(this);//this или getComponnent? передаём ссылку на экземпляр в менеджер
         gameObject.name = "Monster " + Random.Range(0, 100);
+
+
+
         _rigidbody = GetComponent<Rigidbody2D>();
         _rigidbody.mass = mass;
         MOVE = GetComponent<MoveEnemy>();

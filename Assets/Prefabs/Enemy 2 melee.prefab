@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5c0bb66d16a3241b6726ba88216286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 3
+  HP: 2
   mass: 50
   deathEff: {fileID: 8154724476448960517, guid: a586403b38c8684488139d4f5c5d7b8e,
     type: 3}
@@ -477,7 +477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7421946146553723182}
   - component: {fileID: 7421946146553723153}
-  - component: {fileID: 7421946146553723183}
+  - component: {fileID: 714577901235003906}
   m_Layer: 9
   m_Name: punch
   m_TagString: punch
@@ -492,13 +492,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7421946146553723152}
-  m_LocalRotation: {x: -0, y: -0, z: 0.3483866, w: 0.9373509}
-  m_LocalPosition: {x: -1.02, y: -0.19, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.033897128, w: 0.99942535}
+  m_LocalPosition: {x: -1.33, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7421946145684599777}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40.777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.8850002}
 --- !u!70 &7421946146553723153
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -506,16 +506,16 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7421946146553723152}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.061987936, y: 0.15884377}
-  m_Size: {x: 0.6239763, y: 1.2278072}
+  m_Offset: {x: 0.22608311, y: -0.17353714}
+  m_Size: {x: 0.95216674, y: 1.8925878}
   m_Direction: 0
---- !u!50 &7421946146553723183
+--- !u!50 &714577901235003906
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

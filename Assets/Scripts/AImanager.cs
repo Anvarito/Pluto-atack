@@ -114,7 +114,7 @@ public class AImanager : MonoBehaviour
         }
         else
         {
-            Debug.DrawLine(_positionAI, _positionPlayer, Color.blue);
+           // Debug.DrawLine(_positionAI, _positionPlayer, Color.blue);
             return "Player";
         }
     }//луч к игроку
