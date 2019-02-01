@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7421946144901584804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2, y: -0.98, z: 0}
+  m_LocalPosition: {x: 0.2, y: -1.043, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7421946145684599777}
@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 7421946145684599780}
   - component: {fileID: 7421946145684599783}
   - component: {fileID: 7421946145684599782}
+  - component: {fileID: 2227693021403788776}
   m_Layer: 8
   m_Name: Enemy 2 melee
   m_TagString: meleeEnemy
@@ -239,9 +240,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 2
   mass: 50
-  deathEff: {fileID: 8154724476448960517, guid: a586403b38c8684488139d4f5c5d7b8e,
+  bulletHitEff: {fileID: 3451016383843769059, guid: 74dc2bc0efa2b1046bd7c23922c0df05,
     type: 3}
-  numberDistanceForMove: 7
+  numberDistanceForMove: 100
   numberDistanceForShoot: 3
   numberDistanceForMelee: 2
 --- !u!114 &7421946145684599783
@@ -259,11 +260,12 @@ MonoBehaviour:
   front_ground_trigger: {fileID: 7421946146220927567}
   back_ground_trigger: {fileID: 7421946144901584805}
   front_trigger: {fileID: 7421946146517535243}
-  GroundCollisionDistance: 0.4
+  GroundCollisionDistance: 0.3
   FrontCollisionDistance: 0.5
   needDebugDrawLine: 0
-  speed: 3
-  jumpForce: 150
+  needSpawnAnimation: 1
+  speed: 5
+  jumpForce: 100
 --- !u!114 &7421946145684599782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,8 +279,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PUNCH: {fileID: 7421946146553723152}
-  PunchForce: 70
   Damage: 1
+--- !u!114 &2227693021403788776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7421946145684599785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e0a10bd3953ef48a98a78349a52956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7421946146180703610
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7421946146220927566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7, y: -0.96, z: 0}
+  m_LocalPosition: {x: -0.636, y: -1.039, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7421946145684599777}
@@ -413,7 +426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7421946146517535242}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.71000135, y: -0.051, z: 0}
+  m_LocalPosition: {x: -0.6520008, y: -0.051, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7421946145684599777}
@@ -477,7 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7421946146553723182}
   - component: {fileID: 7421946146553723153}
-  - component: {fileID: 714577901235003906}
+  - component: {fileID: 2825935747148519060}
   m_Layer: 9
   m_Name: punch
   m_TagString: punch
@@ -492,13 +505,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7421946146553723152}
-  m_LocalRotation: {x: -0, y: -0, z: 0.033897128, w: 0.99942535}
-  m_LocalPosition: {x: -1.33, y: -0.1, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.85, y: -0.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7421946145684599777}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.8850002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &7421946146553723153
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -509,13 +522,13 @@ CapsuleCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.22608311, y: -0.17353714}
-  m_Size: {x: 0.95216674, y: 1.8925878}
+  m_Offset: {x: 0.37676102, y: 0.9}
+  m_Size: {x: 2.46, y: 2.5340233}
   m_Direction: 0
---- !u!50 &714577901235003906
+--- !u!50 &2825935747148519060
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -535,4 +548,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4

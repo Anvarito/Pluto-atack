@@ -27,4 +27,24 @@ public class User_Controller : MonoBehaviour
         //else if (Input.GetButtonUp("Fire1"))
         //    gun.StopFire();
     }
+
+    
+
+    public void OnClickMove(float side)
+    {
+        pc.Move(side);
+        //print(Input.GetAxis("Horizontal"));
+    }
+
+    public void onClickJump()
+    {
+       // if (Input.GetButtonDown("Jump"))
+            pc.Jump();
+    }
+
+    public void onClickFire()
+    {
+       // if (Input.GetButton("Fire1"))
+            gun.Fire();
+    }
 }

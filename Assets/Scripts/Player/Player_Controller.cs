@@ -17,6 +17,7 @@ public class Player_Controller : MonoBehaviour
     public Transform second_ground_trigger;
     public Transform forwardTrigger;
     public Transform secondforwardTrigger;
+    public GameObject jumpFireSprite; //анимация огня от прыжка
     public bool needDrawLine = true;
     public float distanceLine = 0.1f;
     public float FrontCollisionDistance = 0.3f;
@@ -25,10 +26,7 @@ public class Player_Controller : MonoBehaviour
     private const float _leftRotation = 180;//направление влево
     private Quaternion _directionPlayer;
     // private bool _contact_in_air = false;
-    private enum Do
-    {
-        Stop, Run, Jump, Fire
-    }
+   
 
     float position_x_groundTriger
     {
@@ -75,6 +73,9 @@ public class Player_Controller : MonoBehaviour
     bool hasHit = false;
     float timerHit = 0;
 
+    float timerJump = 0;
+    bool jumpAlready = false;
+
     private void Start()
     {
         isPlayerRight = true;
@@ -98,22 +99,34 @@ public class Player_Controller : MonoBehaviour
             _animation.Play("Jump");
         }
         else
+        {
             _animation.Play("Idle");
+        }
 
 
         if (hasHit) //таймер для подсчёта времени после удара
         {
             timerHit += Time.deltaTime;
         }
-        if (timerHit >= 0.1)//спустя это время вернётся обычный цвет персонажа
+        if (timerHit >= 0.3)//спустя это время вернётся обычный цвет персонажа
         {
             _spriterenderer.color = new Color(1,1,1);
+            hasHit = false;
             timerHit = 0;
         }
 
-
-
+        
+        if(jumpAlready) //выключить огонь прыжка после приземления
+            timerJump += Time.deltaTime;
+        if (timerJump >= 0.5 && Is_Ground_Collision())
+        {
+            jumpFireSprite.SetActive(false);
+            timerJump = 0;
+            jumpAlready = false;
+        }
     }
+
+
 
     //бег
     public void Move(float ax)
@@ -164,10 +177,10 @@ public class Player_Controller : MonoBehaviour
         if (Is_Ground_Collision())
         {
             _rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-            // _animation.Play("Jump");
+            jumpFireSprite.SetActive(true);
+            jumpAlready = true;
         }
     }
-
 
     bool Is_Front_Collision()
     {
@@ -178,9 +191,9 @@ public class Player_Controller : MonoBehaviour
         var direction = isPlayerRight ? Vector2.right : Vector2.left; //new Vector2(directionX, position_y_groundTriger);
 
         var defaultMask = LayerMask.GetMask("Default");
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, FrontCollisionDistance, defaultMask);
-        RaycastHit2D second_hit = Physics2D.Raycast(second_origin, direction, FrontCollisionDistance, defaultMask);
-        RaycastHit2D third_hit = Physics2D.Raycast(third_origin, direction, FrontCollisionDistance, defaultMask);
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, FrontCollisionDistance); //дефолтмаск?
+        RaycastHit2D second_hit = Physics2D.Raycast(second_origin, direction, FrontCollisionDistance);
+        RaycastHit2D third_hit = Physics2D.Raycast(third_origin, direction, FrontCollisionDistance);
 
         if (needDrawLine == true)
         {
@@ -202,8 +215,6 @@ public class Player_Controller : MonoBehaviour
         }
         return hitFront;
     }
-
-
     bool Is_Ground_Collision()
     {
         bool hitGround = false;
@@ -213,8 +224,8 @@ public class Player_Controller : MonoBehaviour
        // var distance = 0.2f;
 
         var defaultMask = LayerMask.GetMask("Default");
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, distanceLine, defaultMask);
-        RaycastHit2D second_hit = Physics2D.Raycast(second_origin, direction, distanceLine, defaultMask);
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, distanceLine ); //дефолт маск
+        RaycastHit2D second_hit = Physics2D.Raycast(second_origin, direction, distanceLine );
         if (needDrawLine == true)
         {
             Debug.DrawRay(origin, direction * distanceLine, Color.blue, 0.25f);
@@ -234,16 +245,18 @@ public class Player_Controller : MonoBehaviour
         return hitGround;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+   
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //   print("!!!!");
+          // print("!!!!");
         if (collision.transform.tag == "punch")
         {
             hasHit = true;
-            print(HP);
             HP -= collision.transform.parent.GetComponent<MeleeEnemy>().Damage;
+            print(HP);
             ChangeColorDamage();
         }
+        
     }
 
     void ChangeColorDamage() //от удара изменить цвет персонажа
@@ -251,4 +264,6 @@ public class Player_Controller : MonoBehaviour
         Color colorDamage = new Color(1, 0, 0);
         _spriterenderer.color = colorDamage;
     }
+
+ 
 }

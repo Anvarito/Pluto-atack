@@ -13,6 +13,10 @@ public class AImanager : MonoBehaviour
     [System.NonSerialized]
     public Ai_Enemy curentAI;
 
+    public bool show_AIList_count = true;
+
+
+
 
     public Vector2 _positionPlayer
     {
@@ -27,21 +31,25 @@ public class AImanager : MonoBehaviour
     public static List<Ai_Enemy> AIlist = new List<Ai_Enemy>();//сюда собираются все АИ которые в данный момент есть в игре
 
     public static List<GameObject> StaticEnemyList = new List<GameObject>();
-    public List<GameObject> EnemyList = new List<GameObject>();//тут список всех типо врагов
+    public List<GameObject> EnemyList = new List<GameObject>();//тут список всех типов врагов
 
     void Start()
     {
         player = GameObject.Find("Player");
-        StaticEnemyList = EnemyList;
+        StaticEnemyList = EnemyList; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (AIlist.Count != 0)
-        //    print(AIlist.Count);
-        //else
-        //    print("AI list is clear");
+
+        if (show_AIList_count)
+        {
+            if (AIlist.Count != 0)
+                print(AIlist.Count);
+            else
+                print("AI list is clear");
+        }
 
 
         foreach (Ai_Enemy AI in AIlist)
@@ -50,37 +58,14 @@ public class AImanager : MonoBehaviour
             AI.DistanceToPlayer = DistanceToPlayer();
             AI.Dot = Dot();
             AI.DirectionToPlayer = DirectionToPlayer();
+            var mele = AI.GetComponent<MeleeEnemy>();
+            var shooting = AI.GetComponent<ShootingEnemy>();
 
+            AI.meleeAllow = DistanceToPlayer() <= AI.numberDistanceForMelee && mele;
+            AI.shootAllow = DistanceToPlayer() <= AI.numberDistanceForShoot && RayToPlayer() == "Player" && !AI.meleeAllow && shooting;
+            AI.moveAllow = DistanceToPlayer() <= AI.numberDistanceForMove &&//бежать (и прыгать)
+                !AI.shootAllow && !AI.meleeAllow && AI.GetComponent<MoveEnemy>();
 
-            if (DistanceToPlayer() <= AI.numberDistanceForMove &&
-                DistanceToPlayer() >= AI.numberDistanceForShoot)
-            {
-                AI.moveAllow = true;
-                AI.shootAllow = false;
-                AI.meleeAllow = false;
-            }
-
-            if (DistanceToPlayer() <= AI.numberDistanceForShoot &&
-                DistanceToPlayer() >= AI.numberDistanceForMelee &&
-                RayToPlayer() == "Player")
-            {
-                AI.moveAllow = false;
-                AI.shootAllow = true;
-                AI.meleeAllow = false;
-            }
-            else
-            {
-                AI.moveAllow = true;
-                AI.shootAllow = false;
-                AI.meleeAllow = false;
-            }
-
-            if (DistanceToPlayer() <= AI.numberDistanceForMelee)
-            {
-                AI.moveAllow = false;
-                AI.shootAllow = false;
-                AI.meleeAllow = true;
-            }
         }
     }
 

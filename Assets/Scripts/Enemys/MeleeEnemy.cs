@@ -8,7 +8,7 @@ public class MeleeEnemy : MonoBehaviour
     // Start is called before the first frame update
     public GameObject PUNCH;
     //  public Transform startPointPush;
-    public float PunchForce = 70;
+    //public float PunchForce = 70;
     public int Damage = 1;
 
     bool PunchStarted = false;

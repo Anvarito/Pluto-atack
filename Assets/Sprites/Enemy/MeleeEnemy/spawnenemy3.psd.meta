@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: fe49b479ebd55b34bbcf10e5b59f39ff
+guid: cd330d9e7ae2dc44aa07a43dcfcdc456
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spawnenemy2_0
-    21300002: spawnenemy2_1
-    21300004: spawnenemy2_2
-    21300006: spawnenemy2_3
-    21300008: spawnenemy2_4
-    21300010: spawnenemy2_5
-    21300012: spawnenemy2_6
-    21300014: spawnenemy2_7
-    21300016: spawnenemy2_8
-    21300018: spawnenemy2_9
-    21300020: spawnenemy2_10
-    21300022: spawnenemy2_11
+    21300000: spawnenemy3_0
+    21300002: spawnenemy3_1
+    21300004: spawnenemy3_2
+    21300006: spawnenemy3_3
+    21300008: spawnenemy3_4
+    21300010: spawnenemy3_5
+    21300012: spawnenemy3_6
+    21300014: spawnenemy3_7
+    21300016: spawnenemy3_8
+    21300018: spawnenemy3_9
+    21300020: spawnenemy3_10
+    21300022: spawnenemy3_11
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -59,7 +59,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -85,12 +85,12 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
@@ -107,241 +107,241 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spawnenemy2_0
+      name: spawnenemy3_0
       rect:
         serializedVersion: 2
         x: 1
         y: 0
         width: 65
-        height: 80
+        height: 81
       alignment: 9
-      pivot: {x: 0.51345766, y: 0.3301945}
+      pivot: {x: 0.5, y: 0.32}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9da61528096e074086033f3a87ce33a
+      spriteID: 3b53f7c852bd45d458a8b1b097766b8f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spawnenemy2_1
+      name: spawnenemy3_1
       rect:
         serializedVersion: 2
-        x: 68
+        x: 67
         y: 0
-        width: 65
-        height: 80
+        width: 66
+        height: 81
       alignment: 9
-      pivot: {x: 0.51345766, y: 0.3301945}
+      pivot: {x: 0.5, y: 0.32}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 329a001cbd23c8647a777007c16cd4c5
+      spriteID: 4f5ff211154ca39499b5ebc10d1c778e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spawnenemy2_2
+      name: spawnenemy3_2
       rect:
         serializedVersion: 2
         x: 135
         y: 0
         width: 65
-        height: 80
+        height: 81
       alignment: 9
-      pivot: {x: 0.51345766, y: 0.3301945}
+      pivot: {x: 0.5, y: 0.32}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbacbe00f000b6e4c91e641e76bb2e16
+      spriteID: f2c5de78e8b61264d8260ada4df0a53c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spawnenemy2_3
+      name: spawnenemy3_3
       rect:
         serializedVersion: 2
         x: 202
         y: 0
         width: 65
-        height: 80
+        height: 81
       alignment: 9
-      pivot: {x: 0.50843835, y: 0.3301945}
+      pivot: {x: 0.5, y: 0.32}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7d7d88a0a125304088253ec3dae025b
+      spriteID: 47d6a1b6f9b8cd3438a6aabc93555aef
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spawnenemy2_4
+      name: spawnenemy3_4
       rect:
         serializedVersion: 2
         x: 269
         y: 0
         width: 65
-        height: 80
+        height: 81
       alignment: 9
-      pivot: {x: 0.51345766, y: 0.3301945}
+      pivot: {x: 0.5, y: 0.32}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d45d0cb548b511f49b57d076b6e1bf31
+      spriteID: c580b5a3a9c562e40a2ba293fc6d7720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spawnenemy2_5
+      name: spawnenemy3_5
       rect:
         serializedVersion: 2
         x: 336
         y: 0
         width: 65
-        height: 80
+        height: 81
       alignment: 9
-      pivot: {x: 0.51345766, y: 0.3301945}
+      pivot: {x: 0.5, y: 0.32}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77e6f4a9d2f24bb45b80e944bfcd8af0
+      spriteID: cca41d0ba905f0b4d8a1030f92b40730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spawnenemy2_6
+      name: spawnenemy3_6
       rect:
         serializedVersion: 2
         x: 403
         y: 0
         width: 65
-        height: 80
+        height: 81
       alignment: 9
-      pivot: {x: 0.51345766, y: 0.3301945}
+      pivot: {x: 0.5, y: 0.32}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c37d96fb50877d418b2a13b29408509
+      spriteID: 68286a2b995d1bd45b8a503456299f92
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spawnenemy2_7
+      name: spawnenemy3_7
       rect:
         serializedVersion: 2
         x: 470
         y: 0
         width: 65
-        height: 80
+        height: 81
       alignment: 9
-      pivot: {x: 0.51345766, y: 0.3301945}
+      pivot: {x: 0.5, y: 0.32}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee7ec964858329541870743d6bb76969
+      spriteID: 8d2ac1bb48110bd419e394382c740843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spawnenemy2_8
+      name: spawnenemy3_8
       rect:
         serializedVersion: 2
         x: 537
         y: 0
         width: 65
-        height: 80
+        height: 81
       alignment: 9
-      pivot: {x: 0.51345766, y: 0.3301945}
+      pivot: {x: 0.5, y: 0.32}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b582c0cb118e624a96b7242e24edf52
+      spriteID: bbd417bff0006b04aa0e37910d633219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spawnenemy2_9
+      name: spawnenemy3_9
       rect:
         serializedVersion: 2
         x: 604
         y: 0
         width: 65
-        height: 80
+        height: 81
       alignment: 9
-      pivot: {x: 0.51345766, y: 0.3301945}
+      pivot: {x: 0.5, y: 0.32}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e58cffa39c7a3474f9bc3a8301befa17
+      spriteID: edf7601678024a04ca95ff56643e9956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spawnenemy2_10
+      name: spawnenemy3_10
       rect:
         serializedVersion: 2
         x: 671
         y: 0
         width: 65
-        height: 80
+        height: 81
       alignment: 9
-      pivot: {x: 0.51345766, y: 0.3301945}
+      pivot: {x: 0.5, y: 0.32}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b57d23eaac94a6c4cb860f5f225f80d9
+      spriteID: 1672b46a9bb6a3143be39be7845ea245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spawnenemy2_11
+      name: spawnenemy3_11
       rect:
         serializedVersion: 2
         x: 738
         y: 0
         width: 65
-        height: 80
+        height: 81
       alignment: 9
-      pivot: {x: 0.51345766, y: 0.3301945}
+      pivot: {x: 0.5, y: 0.32}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7248da4f98211f14783f7f5beb8036ab
+      spriteID: 8f25d9bf37ba5e34a9e92a21b409f5b1
       vertices: []
       indices: 
       edges: []
@@ -349,7 +349,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 675b349922fa1e2459eb6ed59dc6886b
+    spriteID: 93f567455a307434ebc6cc4a3afcd894
     vertices: []
     indices: 
     edges: []

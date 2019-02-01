@@ -19,9 +19,9 @@ public class MoveEnemy : MonoBehaviour
     public float GroundCollisionDistance = 0.2f;
     public float FrontCollisionDistance = 0.2f;
     public bool needDebugDrawLine = false;
-    public bool needSpawnAnimation = true;
+    public bool needSpawnAnimation = true; //данная переменная нужна если есть анимация спавна
     public float speed = 3;
-    public float jumpForce = 150;
+    public float jumpForce = 50;
 
     [System.NonSerialized]
     public bool isEnemyRight;
@@ -31,7 +31,8 @@ public class MoveEnemy : MonoBehaviour
     private Quaternion _directionEnemy;
     private float timer = 0;
     private bool timerstarted = false;
-    private bool StartAllow = false;
+
+    private bool StartAllow = false;//данная переменная нужна если есть анимация спавна
 
     private float JumpTime = 0.5f; //время через которое во время прыжка может снова идти вперёд AI
 
@@ -39,18 +40,22 @@ public class MoveEnemy : MonoBehaviour
 
     void Start()
     {
-
+        StartAllow = false;
         _Ai = GetComponent<Ai_Enemy>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        if (needSpawnAnimation)
+
+        if (needSpawnAnimation) //данная конструкция нужна если есть анимация спавна
         {
             _animator.Play("Spawn");
+
+          //  StartAllow = false;
+            //needSpawnAnimation = false;
+            //StartAllow = true;
         }
-        else
-        {
-            StartAllow = true;
-        }
+      
+
+
         //  _rigidbody = GetComponent<Rigidbody2D>();
         // _animation = GetComponent<Animator>();
     }
@@ -58,45 +63,16 @@ public class MoveEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //print(Is_Ground_Collision());
-        //print(Is_Front_Collision());
-
         if (timerstarted)
             timer += Time.deltaTime;
-
-
-        // if (_PlayerInZoneVisible)
-        // {
-        //  if (!_PlayerInZoneAtack && !Is_Front_Collision() && (Is_Ground_Collision() || (timer <= JumpTime) && timerstarted))
-        //    Move(speed);
-
-        //Turn_Enemy(!(Dot() > 0));
-        // }
-        //else
-        //{
-        //    Stay();
-        //}
 
         if (timer >= JumpTime)
         {
             timerstarted = false;
             timer = 0;
         }
-
-        //Debug.Log(gameObject.name +" "+ timer);
-        // poitForRay = RayToPlayer();
-        //if (_Ai._PlayerInZoneVisible)
-        //{
-        //    if (!_Ai._PlayerInZoneAtack && !_Ai.Is_Front_Collision() && _Ai.Is_Ground_Collision())
-        //        _Ai.Move(speed);
-
-        //    _Ai.Turn_Enemy(!(_Ai.Dot() > 0));
-        //}
-        //else
-        //{
-        //    _Ai.Stay();
-        //}
+        //if (Input.GetKey(KeyCode.J))
+        //    Jump();
     }
 
 
@@ -213,15 +189,20 @@ public class MoveEnemy : MonoBehaviour
 
     public void Run(Vector2 DirectionToPlayer)
     {
-        if (StartAllow)
+        //Debug.Log("StartAllow " + StartAllow);
+        if (StartAllow)//если старт разрешен, после того как прошла анимация спавна
         {
-            if (!Is_Front_Collision() && (Is_Ground_Collision() || (timer <= JumpTime) && timerstarted))
+            //Debug.Log("front collision " + Is_Front_Collision());
+            if (!Is_Front_Collision())
             {
+                //   Debug.Log("I start");
                 _animator.Play("Run");
-
+                //  Debug.Log("Animation start");
                 Vector2 dir = DirectionToPlayer;
                 float direction = dir.x;
-                _rigidbody.velocity = new Vector2(direction * speed, 0);
+                transform.position += new Vector3(direction, 0, 0) * Time.deltaTime * speed;
+                //  Debug.Log("I end");
+                // _rigidbody.velocity = new Vector2(direction * speed, 0);
             }
             else
             {
@@ -229,15 +210,12 @@ public class MoveEnemy : MonoBehaviour
                 //print(gameObject.name + " - " +Is_Ground_Collision());
                 // Jump();
                 _animator.Play("Stay");
-
-                if (Is_Front_Collision() && Is_Ground_Collision())
-                {
-                    Jump();
-                }
-
             }
 
-
+            if (Is_Front_Collision() && Is_Ground_Collision())
+            {
+                Jump();
+            }
 
             if (_rigidbody.IsSleeping())
             {
@@ -278,21 +256,24 @@ public class MoveEnemy : MonoBehaviour
         _animator.Play("Stay");
     }//метод что бы просто стоять
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision) //костыль
     {
         if (collision.collider.tag == "meleeEnemy" && Is_Front_Collision())
         {
-            Jump();
+            //  Jump();
 
         }
     }
 
-    void LetsStartAllow()
+    public bool Visible()
     {
-        StartAllow = true;
+        return GeometryUtility.TestPlanesAABB(GeometryUtility.CalculateFrustumPlanes(Camera.main), GetComponent<CapsuleCollider2D>().bounds);
     }
 
-
-
+    void LetsStartAllow()//данный метод нужен если есть анимация спавна
+    {
+        StartAllow = true;
+      //  needSpawnAnimation = false;
+    }
 }
 

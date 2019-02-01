@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     public float bullet_speed = 3;
     public int Damage = 1;
-    public GameObject bulletHitEffect_1;
+   // public GameObject bulletHitEffect_1;
     Rigidbody2D _rigidbody;
     // Rigidbody2D rb;
 
@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
     {
         //if (collision.transform.tag == "enemy")
         //{
-            var buletObj = Instantiate(bulletHitEffect_1, gameObject.transform.position, Quaternion.identity);
+           // var buletObj = Instantiate(bulletHitEffect_1, gameObject.transform.position, Quaternion.identity);
         //}
         Destroy(gameObject);
     }

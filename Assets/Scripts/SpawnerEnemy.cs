@@ -37,10 +37,10 @@ public class SpawnerEnemy : MonoBehaviour
                 switch (tag)
                 {
                     case "shootingEnemySpawner":
-                        enemyNumber = 0;
+                        enemyNumber = 1;
                         break;
                     case "meleeEnemySpawner":
-                        enemyNumber = 1;
+                        enemyNumber = 0;
                         break;
                     default:
                         enemyNumber = 0;

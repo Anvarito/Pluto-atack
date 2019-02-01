@@ -1,17 +1,19 @@
 fileFormatVersion: 2
-guid: 1c1ffcba844ed134ca4c13a7e25225cf
+guid: 5f93d6a54c21efc46976906748af90bf
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hit enemy blood effect_0
-    21300002: hit enemy blood effect_1
-    21300004: hit enemy blood effect_2
-    21300006: hit enemy blood effect_3
-    21300008: hit enemy blood effect_4
-    21300010: hit enemy blood effect_5
-    21300012: hit enemy blood effect_6
-    21300014: hit enemy blood effect_7
-    21300016: hit enemy blood effect_8
-    21300018: hit enemy blood effect_9
+    21300000: deathenemy2_0
+    21300002: deathenemy2_1
+    21300004: deathenemy2_2
+    21300006: deathenemy2_3
+    21300008: deathenemy2_4
+    21300010: deathenemy2_5
+    21300012: deathenemy2_6
+    21300014: deathenemy2_7
+    21300016: deathenemy2_8
+    21300018: deathenemy2_9
+    21300020: deathenemy2_10
+    21300022: deathenemy2_11
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -46,7 +48,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -55,7 +57,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 12
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -100,18 +102,18 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
-    androidETC2FallbackOverride: 0
+    androidETC2FallbackOverride: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hit enemy blood effect_0
+      name: deathenemy2_0
       rect:
         serializedVersion: 2
         x: 1
         y: 0
-        width: 30
-        height: 16
+        width: 100
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,19 +121,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3871d3931a0ad074daaca1f87517d343
+      spriteID: cba2572f07e7ee54eb4057de5419f99f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_1
+      name: deathenemy2_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 103
         y: 0
-        width: 30
-        height: 16
+        width: 100
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,19 +141,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de8c72e616329054a932dd2ca66be6fa
+      spriteID: 0aaab6f57a15a6f41b056217b99282fd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_2
+      name: deathenemy2_2
       rect:
         serializedVersion: 2
-        x: 65
+        x: 205
         y: 0
-        width: 30
-        height: 16
+        width: 100
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,19 +161,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bc5077f18459d6468fecf92a9cf41dd
+      spriteID: d5d1d0d672721f840b70380f9043e2bb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_3
+      name: deathenemy2_3
       rect:
         serializedVersion: 2
-        x: 97
+        x: 307
         y: 0
-        width: 30
-        height: 16
+        width: 100
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,19 +181,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 254ffcd5bc0d0104aadfb5c9d480873e
+      spriteID: 9d3425b88df72c549b7368832e2c6e29
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_4
+      name: deathenemy2_4
       rect:
         serializedVersion: 2
-        x: 129
+        x: 409
         y: 0
-        width: 30
-        height: 16
+        width: 100
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,19 +201,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9240a0f7cfb549f479ef3945d716d345
+      spriteID: 8035ef0f21cd60b4abfa6a92113e0d5b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_5
+      name: deathenemy2_5
       rect:
         serializedVersion: 2
-        x: 161
+        x: 511
         y: 0
-        width: 30
-        height: 16
+        width: 100
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,19 +221,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bffc7c18cb99cf0488b08b7c1fa82e70
+      spriteID: 3b26cd0ea9e4f5d48a45a0a9fc1682f5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_6
+      name: deathenemy2_6
       rect:
         serializedVersion: 2
-        x: 193
+        x: 613
         y: 0
-        width: 30
-        height: 16
+        width: 100
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,19 +241,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5289e2b255d73ab47a3d03f038d3bce5
+      spriteID: a68641ce2a8b84e418953f51805bb119
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_7
+      name: deathenemy2_7
       rect:
         serializedVersion: 2
-        x: 225
+        x: 715
         y: 0
-        width: 30
-        height: 16
+        width: 100
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,19 +261,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f04276785bc0534f9ef06edacc9ed2d
+      spriteID: a4178f7a96ddd0941bdee31bf0d1d284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_8
+      name: deathenemy2_8
       rect:
         serializedVersion: 2
-        x: 257
+        x: 817
         y: 0
-        width: 30
-        height: 16
+        width: 100
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,19 +281,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cf715abc698e2b49b654995db52e97e
+      spriteID: 44e428b985add6d44a3f64749d7fe7fc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hit enemy blood effect_9
+      name: deathenemy2_9
       rect:
         serializedVersion: 2
-        x: 289
+        x: 919
         y: 0
-        width: 30
-        height: 16
+        width: 100
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,7 +301,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef7e7407173066e4e96c44f79cd0dc6d
+      spriteID: 2ff885678ed6c4f47bbd477c73784931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathenemy2_10
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 0
+        width: 100
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12819ea523861604191b33f5a0547dc8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathenemy2_11
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 0
+        width: 100
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fda57d3790949149bdf89b51cbc1bb7
       vertices: []
       indices: 
       edges: []
@@ -307,7 +349,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 65db6324c1af7d14d91cbf2dd36d8b93
+    spriteID: 0a71c2b5f197bc347b68cdf92b8218de
     vertices: []
     indices: 
     edges: []
