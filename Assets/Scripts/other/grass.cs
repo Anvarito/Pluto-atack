@@ -20,10 +20,19 @@ public class grass : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "ground") 
+        if (collision.tag != "ground" && collision.tag != "bullet") 
         {
-            print("!!!");
-            _anim.Play("grass");
+            print("enter");
+            if (collision.transform.position.x > gameObject.transform.position.x)
+            {
+                print("!!!");
+                _anim.Play("grassLeft");
+            }
+            else
+            {
+                print("!!!");
+                _anim.Play("grassRight");
+            }
         }
         
     }
