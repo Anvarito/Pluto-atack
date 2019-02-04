@@ -143,6 +143,7 @@
     <None Include="Assets\test\333.txt" />
     <None Include="Assets\Tilemap\Tiles\Rule Tile\ScriptTemplates\NewCustomRuleTile.cs.txt" />
     <None Include="Assets\test\sda.txt" />
+    <None Include="Assets\test\8.txt" />
     <None Include="Assets\test\121111111.txt" />
     <None Include="Assets\test\shash.txt" />
     <None Include="Assets\test\5.txt" />
