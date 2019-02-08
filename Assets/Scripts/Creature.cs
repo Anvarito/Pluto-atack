@@ -1,39 +1,50 @@
+using System;
 using UnityEngine;
 
-public class Creature : MonoBehaviour
+public abstract class Creature : MonoBehaviour
 {
 	public int Health { get; set; }
-
 	public float MoveSpeed { get; set; }
-	public CreatureState State { get; set; }
-
-	public bool needDrawLine = true;
-
 	public CollisionDetector collisionDetector;
 
-	protected Rigidbody2D _body;
-	protected Animator _animation;
-	protected SpriteRenderer _spriteRenderer;
+	protected Rigidbody2D Body;
+	protected Animator Animator;
+	protected SpriteRenderer SpriteRenderer;
+	protected string CurrentAnimation;
+	protected Vector2 OriginalPosition;
+
 	protected bool isFacingRight = true;
+
+	protected bool inAir => !collisionDetector.IsOnGroundCollision();
 
 	public void TakeDamage(int damage)
 	{
 		Health -= damage;
-		if (Health > 0) return;
-		{
-			State = CreatureState.Dead;
-		}
+		if (Health <= 0) Die();
 	}
+
+	protected abstract void Die();
 
 	public void Start()
 	{
-		_body = GetComponent<Rigidbody2D>();
-		_animation = GetComponent<Animator>();
-		_spriteRenderer = GetComponent<SpriteRenderer>();
+		Body = GetComponent<Rigidbody2D>();
+		Animator = GetComponent<Animator>();
+		SpriteRenderer = GetComponent<SpriteRenderer>();
+		OriginalPosition = transform.position;
 	}
-	
-	void Flip(bool right)
+
+	public void Flip(bool right)
 	{
-		// @TODO реализовать логику разворота
+		var newScale = gameObject.transform.localScale;
+		newScale.x *= -1;
+		gameObject.transform.localScale = newScale;
+	}
+
+	public void TurnRight()
+	{
+	}
+
+	public void TurnLeft()
+	{
 	}
 }

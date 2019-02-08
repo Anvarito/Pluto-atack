@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Authentication;
 using UnityEngine;
 
@@ -22,17 +23,17 @@ public class CollisionDetector : MonoBehaviour
 		return CheckCollision(triggers, Vector2.down);
 	}
 
-	public bool IsFrontCollision(bool isFacingRight)
+	public bool IsFrontCollision()
 	{
 		var triggers = new List<Transform>() {frontTopTrigger, frontBottomTrigger, frontMiddleTrigger};
-		var direction = isFacingRight ? Vector2.right : Vector2.left;
+		var direction = Vector2.right;
 		return CheckCollision(triggers, direction);
 	}
 
-	public bool IsBackCollision(bool isFacingRight)
+	public bool IsBackCollision()
 	{
 		var triggers = new List<Transform>() {backTopTrigger, backBottomTrigger, backMiddleTrigger};
-		var direction = isFacingRight ? Vector2.left : Vector2.right;
+		var direction = Vector2.left;
 		return CheckCollision(triggers, direction);
 	}
 
@@ -42,17 +43,10 @@ public class CollisionDetector : MonoBehaviour
 		return CheckCollision(triggers, Vector2.down);
 	}
 
-	private bool CheckCollision(IEnumerable<Transform> triggers, Vector2 direction)
+	private static bool CheckCollision(IEnumerable<Transform> triggers, Vector2 direction)
 	{
-		foreach (var trigger in triggers)
-		{
-			var hit = Physics2D.Raycast(trigger.position, direction, minCollisionDistance);
-			if (hit.collider != null)
-			{
-				return true;
-			}
-		}
-
-		return false;
+		Debug.Log($"Collision detected {direction}");
+		return triggers.Select(trigger => Physics2D.Raycast(trigger.position, direction, minCollisionDistance))
+			.Any(hit => hit.collider != null);
 	}
 }

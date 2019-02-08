@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+    
 [RequireComponent(typeof(Player_Controller))]
 public class User_Controller : MonoBehaviour
 {
