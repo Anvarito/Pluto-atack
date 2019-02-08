@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Player : Creature
 {
+
+	private Weapon weapon;
 	public void Start()
 	{
 		base.Start();
@@ -12,14 +14,20 @@ public class Player : Creature
 	{
 		if (Input.GetButtonDown("Jump"))
 		{
-			CurrentAnimation = "jump";
+			CurrentAnimation = "Jump";
 		}
 
 		Animator.Play(CurrentAnimation);
+		
+	}
+
+	public void Attack()
+	{
+		weapon.Fire();
 	}
 
 	protected override void Die()
 	{
-		throw new System.NotImplementedException();
+		print("Die");
 	}
 }

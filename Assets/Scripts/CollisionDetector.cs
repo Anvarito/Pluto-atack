@@ -40,7 +40,7 @@ public class CollisionDetector : MonoBehaviour
 	public bool IsTopCollision()
 	{
 		var triggers = new List<Transform>() {frontTopTrigger, backTopTrigger};
-		return CheckCollision(triggers, Vector2.down);
+		return CheckCollision(triggers, Vector2.up);
 	}
 
 	private static bool CheckCollision(IEnumerable<Transform> triggers, Vector2 direction)

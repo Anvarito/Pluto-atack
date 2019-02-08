@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Creature : MonoBehaviour
 {
-	public int Health { get; set; }
+	public int Health;
 	public float MoveSpeed { get; set; }
 	public CollisionDetector collisionDetector;
 
