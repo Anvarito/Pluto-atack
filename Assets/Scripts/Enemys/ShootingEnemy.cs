@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Projectiles;
 using UnityEngine;
 
 [RequireComponent(typeof(Ai_Enemy))]
@@ -39,6 +40,6 @@ public class ShootingEnemy : MonoBehaviour
     void BulletShoot()
     {
         Rigidbody2D buletObj = Instantiate(Bullet, pointForShoot.transform.position, Quaternion.identity) as Rigidbody2D;
-        buletObj.AddForce(Dir * buletObj.GetComponent<Shell>().bullet_speed, ForceMode2D.Impulse);
+        buletObj.AddForce(Dir * buletObj.GetComponent<Shell>().speed, ForceMode2D.Impulse);
     }
 }

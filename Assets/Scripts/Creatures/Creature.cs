@@ -1,0 +1,55 @@
+using UnityEngine;
+
+namespace Creatures
+{
+	public abstract class Creature : MonoBehaviour
+	{
+		public int health;
+		public float moveSpeed;
+		public CollisionDetector collisionDetector;
+
+		protected Rigidbody2D Body;
+		protected Animator Animator;
+		protected SpriteRenderer SpriteRenderer;
+		protected string CurrentAnimation;
+		protected Vector2 OriginalPosition;
+
+		protected bool isFacingRight = true;
+
+		public void TakeDamage(int damage)
+		{
+			health -= damage;
+			if (health <= 0) Die();
+		}
+
+		protected abstract void Die();
+
+		public void Start()
+		{
+			Body = GetComponent<Rigidbody2D>();
+			Animator = GetComponent<Animator>();
+			SpriteRenderer = GetComponent<SpriteRenderer>();
+			OriginalPosition = transform.position;
+		}
+
+		public void Flip()
+		{
+			isFacingRight = !isFacingRight;
+			var newScale = gameObject.transform.localScale;
+			newScale.x *= -1;
+			gameObject.transform.localScale = newScale;
+		}
+
+		public void TurnRight()
+		{
+			if (isFacingRight) return;
+			Flip();
+		}
+
+		public void TurnLeft()
+		{
+			if (!isFacingRight) return;
+			Flip();
+		}
+	}
+}
