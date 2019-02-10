@@ -23,6 +23,9 @@ public class CollisionDetector : MonoBehaviour
 		return CheckCollision(triggers, Vector2.down);
 	}
 
+	/// <summary>
+	/// Проверка столкновения с объектом спереди
+	/// </summary>
 	public bool IsFrontCollision()
 	{
 		var triggers = new List<Transform>() {frontTopTrigger, frontBottomTrigger, frontMiddleTrigger};
@@ -30,6 +33,9 @@ public class CollisionDetector : MonoBehaviour
 		return CheckCollision(triggers, direction);
 	}
 
+	/// <summary>
+	/// Проверка столкновения с объектом сзади
+	/// </summary>
 	public bool IsBackCollision()
 	{
 		var triggers = new List<Transform>() {backTopTrigger, backBottomTrigger, backMiddleTrigger};
@@ -37,15 +43,23 @@ public class CollisionDetector : MonoBehaviour
 		return CheckCollision(triggers, direction);
 	}
 
+	/// <summary>
+	/// Проверка столкновения с объектом сверху
+	/// </summary>
 	public bool IsTopCollision()
 	{
 		var triggers = new List<Transform>() {frontTopTrigger, backTopTrigger};
 		return CheckCollision(triggers, Vector2.up);
 	}
 
+	/// <summary>
+	/// Проверить столкновение каждого триггера по заданному направлению
+	/// </summary>
+	/// <param name="triggers">Коллекция триггеров</param>
+	/// <param name="direction">Направление проверки</param>
+	/// <returns>Сталкивается ли хотя бы один триггер</returns>
 	private static bool CheckCollision(IEnumerable<Transform> triggers, Vector2 direction)
 	{
-		Debug.Log($"Collision detected {direction}");
 		return triggers.Select(trigger => Physics2D.Raycast(trigger.position, direction, minCollisionDistance))
 			.Any(hit => hit.collider != null);
 	}
