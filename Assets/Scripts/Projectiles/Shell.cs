@@ -25,7 +25,7 @@ namespace Projectiles
 			Launch();
 		}
 
-		public void Launch()
+		private void Launch()
 		{
 			body.AddForce(Vector2.right * speed, ForceMode2D.Impulse);
 		}

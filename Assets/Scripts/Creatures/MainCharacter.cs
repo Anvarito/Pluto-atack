@@ -1,4 +1,3 @@
-using System;
 using Controllers;
 using UnityEngine;
 using Weapons;
@@ -12,6 +11,8 @@ namespace Creatures
 
 		private MainCharacterController CharacterController;
 
+		public string State { private get; set; }
+
 		public new void Start()
 		{
 			base.Start();
@@ -21,6 +22,7 @@ namespace Creatures
 		public void Update()
 		{
 			CharacterController.Update();
+			Animator.Play(State);
 		}
 
 		public override void Move(Vector2 movement)

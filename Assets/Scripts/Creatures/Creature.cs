@@ -10,7 +10,7 @@ namespace Creatures
 		public CollisionDetector collisionDetector;
 
 		protected Rigidbody2D Body;
-		protected Animator Animator;
+		public Animator Animator;
 		protected SpriteRenderer SpriteRenderer;
 		protected string CurrentAnimation;
 		protected Vector2 OriginalPosition;
@@ -35,7 +35,7 @@ namespace Creatures
 			OriginalPosition = transform.position;
 		}
 
-		public void Flip()
+		private void Flip()
 		{
 			isFacingRight = !isFacingRight;
 			var newScale = gameObject.transform.localScale;
@@ -43,13 +43,13 @@ namespace Creatures
 			gameObject.transform.localScale = newScale;
 		}
 
-		public void TurnRight()
+		protected void TurnRight()
 		{
 			if (isFacingRight) return;
 			Flip();
 		}
 
-		public void TurnLeft()
+		protected void TurnLeft()
 		{
 			if (!isFacingRight) return;
 			Flip();

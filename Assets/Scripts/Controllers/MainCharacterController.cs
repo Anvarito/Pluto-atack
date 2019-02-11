@@ -1,3 +1,4 @@
+using System;
 using Creatures;
 using UnityEngine;
 
@@ -14,22 +15,33 @@ namespace Controllers
 
 		public void Update()
 		{
-			if (Input.GetButton("Jump"))
-			{
-				if (_character.collisionDetector.IsOnGroundCollision())
-				{
-					_character.Jump();
-				}
-			}
-
 			if (Input.GetKey(KeyCode.F))
 			{
 				_character.Attack();
 			}
 
-			var moveHorizontal = Input.GetAxis("Horizontal");
-			var movement = new Vector2(moveHorizontal, 0);
+			var movement = new Vector2();
+			if (Input.GetKey(KeyCode.A))
+			{
+				movement.x = -1f;
+			}
+
+			if (Input.GetKey(KeyCode.D))
+			{
+				movement.x = 1f;
+			}
+
 			_character.Move(movement);
+			_character.State = Math.Abs(movement.x) > 0 ? "Running" : "Idle";
+
+			if (Input.GetButton("Jump"))
+			{
+				if (_character.collisionDetector.IsOnGroundCollision())
+				{
+					_character.Jump();
+					_character.State = "Jumping";
+				}
+			}
 		}
 	}
 }
