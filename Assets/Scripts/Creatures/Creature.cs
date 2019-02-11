@@ -1,4 +1,5 @@
 using UnityEngine;
+using Utils;
 
 namespace Creatures
 {
@@ -23,6 +24,8 @@ namespace Creatures
 		}
 
 		protected abstract void Die();
+
+		public abstract void Move(Vector2 movement);
 
 		public void Start()
 		{

@@ -1,3 +1,5 @@
+using System;
+using Controllers;
 using UnityEngine;
 using Weapons;
 
@@ -8,30 +10,34 @@ namespace Creatures
 		public Weapon weapon;
 		public float jumpForce = 1f;
 
+		private MainCharacterController CharacterController;
+
 		public new void Start()
 		{
 			base.Start();
+			CharacterController = new MainCharacterController(this);
 		}
 
 		public void Update()
 		{
-			if (Input.GetKey(KeyCode.F))
-			{
-				Attack();
-			}
-
-			if (Input.GetButton("Jump"))
-			{
-				if (collisionDetector.IsOnGroundCollision()) Jump();
-			}
+			CharacterController.Update();
 		}
 
-		private void Jump()
+		public override void Move(Vector2 movement)
+		{
+			if (movement.x > 0 && !isFacingRight)
+				TurnRight();
+			if (movement.x < 0 && isFacingRight)
+				TurnLeft();
+			Body.AddForce(movement * moveSpeed);
+		}
+
+		public void Jump()
 		{
 			Body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 		}
 
-		private void Attack()
+		public void Attack()
 		{
 			weapon.Fire();
 		}

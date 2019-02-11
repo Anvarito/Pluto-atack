@@ -33,12 +33,12 @@ namespace Projectiles
 		private void OnCollisionEnter2D(Collision2D collision)
 		{
 			hitEffect.Initiate(collision.gameObject, this);
-//			Destroy(gameObject);
+			Destroy(gameObject);
 		}
 
 		private void OnBecameInvisible()
 		{
-//			Destroy(gameObject);
+			Destroy(gameObject);
 		}
 	}
 }
