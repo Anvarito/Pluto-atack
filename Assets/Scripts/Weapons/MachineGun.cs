@@ -13,7 +13,8 @@ namespace Weapons
 
 		public override void Fire()
 		{
-			Instantiate(bullet, bulletSpawnPosition.position, Quaternion.identity);
+			var newShell = Instantiate(bullet, bulletSpawnPosition.position, Quaternion.identity);
+//			newShell.Launch();
 		}
 	}
 }

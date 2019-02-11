@@ -14,7 +14,7 @@ namespace Projectiles
 		public float mass;
 		public float gravityScale;
 		public ProjectileHitEffect hitEffect;
-		protected Rigidbody2D body;
+		private Rigidbody2D body;
 
 		protected void Start()
 		{
@@ -25,7 +25,7 @@ namespace Projectiles
 			Launch();
 		}
 
-		void Launch()
+		public void Launch()
 		{
 			body.AddForce(Vector2.right * speed, ForceMode2D.Impulse);
 		}
@@ -38,7 +38,7 @@ namespace Projectiles
 
 		private void OnBecameInvisible()
 		{
-			Destroy(gameObject);
+//			Destroy(gameObject);
 		}
 	}
 }
