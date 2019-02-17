@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Projectiles
 {
+	/// <inheritdoc />
 	/// <summary>
 	/// Снаряд оружия
 	/// </summary>
@@ -22,16 +23,18 @@ namespace Projectiles
 			body = GetComponent<Rigidbody2D>();
 			body.mass = mass;
 			body.gravityScale = gravityScale;
-			Launch();
 		}
 
-		private void Launch()
+		public void Launch(Vector2 launchVector)
 		{
-			body.AddForce(Vector2.right * speed, ForceMode2D.Impulse);
+			body = GetComponent<Rigidbody2D>();
+			body.AddForce(launchVector * speed, ForceMode2D.Impulse);
 		}
 
 		private void OnCollisionEnter2D(Collision2D collision)
 		{
+			if (collision.gameObject.CompareTag(tag)) return;
+
 			hitEffect.Initiate(collision.gameObject, this);
 			Destroy(gameObject);
 		}

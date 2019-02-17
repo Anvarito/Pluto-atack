@@ -9,7 +9,11 @@ namespace Weapons
 
 		public override void Fire()
 		{
-			Instantiate(bullet, bulletSpawnPosition.position, Quaternion.identity);
+			var newBullet = Instantiate(bullet, bulletSpawnPosition.position, Quaternion.identity);
+			var LaunchVector = bulletSpawnPosition.position;
+			var direction = bulletSpawnPosition.lossyScale.x < 0 ? Vector2.left : Vector2.right;
+
+			newBullet.Launch(direction);
 		}
 	}
 }
