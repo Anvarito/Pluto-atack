@@ -15,6 +15,23 @@ namespace Utils
 
 		private const float minCollisionDistance = .1f;
 
+		private void Start()
+		{
+			SetTriggersVisibility(Config.IsDebugMode);
+		}
+
+		/// <summary>
+		/// Делает видимым или не видимым триггеры
+		/// </summary>
+		private void SetTriggersVisibility(bool visible)
+		{
+			new List<Transform>()
+			{
+				frontTopTrigger, frontBottomTrigger, frontMiddleTrigger, backTopTrigger, backBottomTrigger,
+				backMiddleTrigger
+			}.ForEach(t => t.gameObject.GetComponent<SpriteRenderer>().enabled = visible);
+		}
+
 		/// <summary>
 		/// Стоит ли объект на земле
 		/// </summary>
