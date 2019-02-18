@@ -11,7 +11,7 @@ public class MoveEnemy : MonoBehaviour
     Ai_Enemy _Ai;
     Rigidbody2D _rigidbody;
     Animator _animator;
-    // Rigidbody2D _rigidbody;
+    // Rigidbody2D body;
     // Animator _animation;
     public Transform front_ground_trigger;
     public Transform back_ground_trigger;
@@ -56,7 +56,7 @@ public class MoveEnemy : MonoBehaviour
       
 
 
-        //  _rigidbody = GetComponent<Rigidbody2D>();
+        //  body = GetComponent<Rigidbody2D>();
         // _animation = GetComponent<Animator>();
     }
 
@@ -202,7 +202,7 @@ public class MoveEnemy : MonoBehaviour
                 float direction = dir.x;
                 transform.position += new Vector3(direction, 0, 0) * Time.deltaTime * speed;
                 //  Debug.Log("I end");
-                // _rigidbody.velocity = new Vector2(direction * speed, 0);
+                // body.velocity = new Vector2(direction * speed, 0);
             }
             else
             {
