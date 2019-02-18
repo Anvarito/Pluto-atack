@@ -9,7 +9,7 @@ namespace Creatures
 		public float moveSpeed;
 		public CollisionDetector collisionDetector;
 
-		protected Rigidbody2D Body;
+		public Rigidbody2D Body;
 		public Animator Animator;
 		protected SpriteRenderer SpriteRenderer;
 		protected string CurrentAnimation;
@@ -30,6 +30,8 @@ namespace Creatures
 		public void Start()
 		{
 			Body = GetComponent<Rigidbody2D>();
+			Body.velocity.Set(0, 0);
+
 			Animator = GetComponent<Animator>();
 			SpriteRenderer = GetComponent<SpriteRenderer>();
 			OriginalPosition = transform.position;

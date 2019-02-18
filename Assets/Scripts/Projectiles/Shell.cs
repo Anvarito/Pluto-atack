@@ -25,16 +25,17 @@ namespace Projectiles
 			body.gravityScale = gravityScale;
 		}
 
-		public void Launch(Vector2 launchVector)
+		public void Launch(Vector2 launchVector, Vector2 playerVelocity)
 		{
 			body = GetComponent<Rigidbody2D>();
-			body.AddForce(launchVector * speed, ForceMode2D.Impulse);
+			body.AddForce(launchVector * speed + playerVelocity, ForceMode2D.Impulse);
 		}
 
 		private void OnCollisionEnter2D(Collision2D collision)
 		{
 			if (collision.gameObject.CompareTag(tag)) return;
 
+			print("bullet collided player");
 			hitEffect.Initiate(collision.gameObject, this);
 			Destroy(gameObject);
 		}

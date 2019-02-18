@@ -1,4 +1,6 @@
-﻿using Projectiles;
+﻿using System;
+using Creatures;
+using Projectiles;
 using UnityEngine;
 
 namespace Weapons
@@ -9,19 +11,19 @@ namespace Weapons
 
 		public override void Fire()
 		{
-		
 			animator.Play("Fire");
-			
-			
 		}
-		
-		
-		public void shoot(){
-			var newBullet = Instantiate(bullet, bulletSpawnPosition.position, Quaternion.identity);
-			var LaunchVector = bulletSpawnPosition.position;
-			var direction = bulletSpawnPosition.lossyScale.x < 0 ? Vector2.left : Vector2.right;
 
-			newBullet.Launch(direction);
+		/// <summary>
+		/// Метод вызывается анимацией Fire
+		/// </summary>
+		public void Shoot()
+		{
+			var newBullet = Instantiate(bullet, bulletSpawnPosition.position, Quaternion.identity);
+			var direction = bulletSpawnPosition.lossyScale.x < 0 ? Vector2.left : Vector2.right;
+			var playerVelocity = new Vector2(gameObject.GetComponentInParent<Creature>().Body.velocity.x, 0);
+
+			newBullet.Launch(direction, playerVelocity);
 		}
 	}
 }

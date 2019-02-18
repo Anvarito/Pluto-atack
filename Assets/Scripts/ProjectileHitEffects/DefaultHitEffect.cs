@@ -11,6 +11,7 @@ namespace ProjectileHitEffects
 			var targetCreature = target.GetComponent<Creature>();
 			if (targetCreature != null)
 			{
+				print("hit effect");
 				targetCreature.TakeDamage(shell.damage);
 			}
 		}
