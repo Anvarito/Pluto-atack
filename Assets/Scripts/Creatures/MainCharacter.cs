@@ -31,7 +31,8 @@ namespace Creatures
 				TurnRight();
 			if (movement.x < 0 && isFacingRight)
 				TurnLeft();
-			Body.AddForce(movement * moveSpeed);
+
+			Body.velocity = new Vector2(movement.x * moveSpeed, Body.velocity.y);
 		}
 
 		public void Jump()
