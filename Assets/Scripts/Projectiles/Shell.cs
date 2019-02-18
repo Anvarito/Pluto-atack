@@ -35,7 +35,6 @@ namespace Projectiles
 		{
 			if (collision.gameObject.CompareTag(tag)) return;
 
-			print("bullet collided player");
 			hitEffect.Initiate(collision.gameObject, this);
 			Destroy(gameObject);
 		}

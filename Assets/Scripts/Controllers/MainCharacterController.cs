@@ -34,13 +34,10 @@ namespace Controllers
 			_character.Move(movement);
 			_character.State = Math.Abs(movement.x) > 0 ? "Running" : "Idle";
 
-			if (Input.GetButton("Jump"))
+			if (Input.GetButton("Jump") && _character.collisionDetector.IsOnGroundCollision())
 			{
-				if (_character.collisionDetector.IsOnGroundCollision())
-				{
-					_character.Jump();
-					_character.State = "Jumping";
-				}
+				_character.Jump();
+				_character.State = "Jumping";
 			}
 		}
 	}

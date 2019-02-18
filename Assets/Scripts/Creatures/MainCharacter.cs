@@ -37,6 +37,7 @@ namespace Creatures
 
 		public void Jump()
 		{
+			Body.velocity = new Vector2(Body.velocity.x, 0);
 			Body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 		}
 
