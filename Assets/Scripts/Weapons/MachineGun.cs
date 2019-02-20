@@ -9,15 +9,10 @@ namespace Weapons
 	{
 		public Shell bullet;
 
-		public override void Fire()
-		{
-			animator.Play("Fire");
-		}
-
 		/// <summary>
 		/// Метод вызывается анимацией Fire
 		/// </summary>
-		public void Shoot()
+		public override void Shoot()
 		{
 			var newBullet = Instantiate(bullet, bulletSpawnPosition.position, Quaternion.identity);
 			var direction = bulletSpawnPosition.lossyScale.x < 0 ? Vector2.left : Vector2.right;

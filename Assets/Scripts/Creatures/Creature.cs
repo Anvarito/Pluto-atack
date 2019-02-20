@@ -40,9 +40,9 @@ namespace Creatures
 		private void Flip()
 		{
 			isFacingRight = !isFacingRight;
-			var newScale = gameObject.transform.localScale;
+			var newScale = transform.localScale;
 			newScale.x *= -1;
-			gameObject.transform.localScale = newScale;
+			transform.localScale = newScale;
 		}
 
 		protected void TurnRight()
