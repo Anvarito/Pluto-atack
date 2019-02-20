@@ -23,11 +23,13 @@ namespace Controllers
 			var movement = new Vector2();
 			if (Input.GetKey(KeyCode.A))
 			{
+				if(!_character.collisionDetector.IsFrontCollision(Vector2.left))
 				movement.x = -1f;
 			}
 
 			if (Input.GetKey(KeyCode.D))
 			{
+				if(!_character.collisionDetector.IsFrontCollision(Vector2.right))
 				movement.x = 1f;
 			}
 

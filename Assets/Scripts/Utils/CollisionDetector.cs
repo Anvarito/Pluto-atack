@@ -44,11 +44,12 @@ namespace Utils
 		/// <summary>
 		/// Проверка столкновения с объектом спереди
 		/// </summary>
-		public bool IsFrontCollision()
+		public bool IsFrontCollision(Vector2 dir)
 		{
 			var triggers = new List<Transform>() {frontTopTrigger, frontBottomTrigger, frontMiddleTrigger};
-			var direction = Vector2.right;
-			return CheckCollision(triggers, direction);
+			
+			//var direction = dir;
+			return CheckCollision(triggers, dir);
 		}
 
 		/// <summary>
@@ -78,6 +79,7 @@ namespace Utils
 		/// <returns>Сталкивается ли хотя бы один триггер</returns>
 		private static bool CheckCollision(IEnumerable<Transform> triggers, Vector2 direction)
 		{
+			
 			return triggers.Select(trigger => Physics2D.Raycast(trigger.position, direction, minCollisionDistance))
 				.Any(hit => hit.collider != null);
 		}
