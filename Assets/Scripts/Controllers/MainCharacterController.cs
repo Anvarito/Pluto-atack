@@ -46,7 +46,10 @@ namespace Controllers
 
 			if (Input.GetKey(KeyCode.R))
 			{
-				_character.TakeWeapon(WeaponNearBy);
+				if (WeaponNearBy != null)
+				{
+					_character.TakeWeapon(WeaponNearBy);
+				}
 			}
 		}
 	}
