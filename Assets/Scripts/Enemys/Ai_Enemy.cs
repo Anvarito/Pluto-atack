@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Projectiles;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -53,7 +54,7 @@ public class Ai_Enemy : MonoBehaviour
         DEATH = GetComponent<Death>();
         //player = GameObject.Find("Player");
         //_animation = GetComponent<Animator>();
-        //_rigidbody = GetComponent<Rigidbody2D>();
+        //body = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -132,7 +133,7 @@ public class Ai_Enemy : MonoBehaviour
         {
             ContactPoint2D contact = collision.contacts[0];
             Vector3 pos = contact.point;
-            HP -= collision.gameObject.GetComponent<Bullet>().Damage;
+            HP -= collision.gameObject.GetComponent<Shell>().damage;
             Instantiate(bulletHitEff, pos, Quaternion.identity);
         }
     }
