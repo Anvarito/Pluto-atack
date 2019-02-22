@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: 9a8365b90036f6a4da1a6ad5b7110eda
+guid: 2e1a50199ee85ab4894cb89acc681bdf
 TextureImporter:
   fileIDToRecycleName:
-    21300000: TOP_0
-    21300002: TOP_1
-    21300004: TOP_2
-    21300006: TOP_3
-    21300008: TOP_4
+    21300000: Grass_right_0
+    21300002: Grass_right_1
+    21300004: Grass_right_2
+    21300006: Grass_right_3
+    21300008: Grass_right_4
+    21300010: Grass_right_5
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -41,7 +42,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -52,7 +53,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -86,17 +87,6 @@ TextureImporter:
     overridden: 1
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -109,6 +99,17 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -133,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TOP_0
+      name: Grass_right_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 35
-        height: 42
+        width: 26
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,19 +148,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 556f345f4cb206046b101d356dd8a16f
+      spriteID: a7f39863c4b18e740b20d6360cc0cd9f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TOP_1
+      name: Grass_right_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 1
-        width: 35
-        height: 41
+        x: 28
+        y: 0
+        width: 26
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,19 +168,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 273f0212c8d8dc5489cf6071f7a21ac2
+      spriteID: cc90e0764a8cc0b42a3bcbccd79d5f20
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TOP_2
+      name: Grass_right_2
       rect:
         serializedVersion: 2
-        x: 72
+        x: 55
         y: 0
-        width: 35
-        height: 42
+        width: 26
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,19 +188,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06ef414d85f1eed4795bb823311e3a04
+      spriteID: cbb149a87e47a2a43a29be62308cff02
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TOP_3
+      name: Grass_right_3
       rect:
         serializedVersion: 2
-        x: 108
+        x: 82
         y: 0
-        width: 35
-        height: 42
+        width: 26
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,19 +208,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ca96ad0b614f7942b8d8431d5b2f642
+      spriteID: 3526c5bcf3b0b444e9f67b0afbbfc564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TOP_4
+      name: Grass_right_4
       rect:
         serializedVersion: 2
-        x: 144
+        x: 109
         y: 0
-        width: 35
-        height: 42
+        width: 26
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,7 +228,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0206e7add67238640a775c0bac3a85ca
+      spriteID: ff5a6fa3212192940806dd41fe4c0eab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_right_5
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 0
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4169cbdf858fa1a4e818e24b256cde98
       vertices: []
       indices: 
       edges: []
@@ -235,12 +256,12 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4b5def6dc8c0ec244a4d4e34482358cd
+    spriteID: 8361157e8efc18842ae4ae5804636e4e
     vertices: []
     indices: 
     edges: []
     weights: []
-  spritePackingTag: jumpPlayer
+  spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
