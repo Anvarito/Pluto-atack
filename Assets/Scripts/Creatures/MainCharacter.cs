@@ -67,7 +67,10 @@ namespace Creatures
 
 			weapon = newWeapon;
 
-			// @TODO: Разворачивать оружие при подбирании, если оно смотрит в другую сторону
+			if (weapon.IsFacingRight() != this.IsFacingRight())
+			{
+				weapon.Flip();
+			}
 			weapon.transform.lossyScale.Set(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
 			newWeapon.transform.SetParent(transform);
 			weapon.transform.position = weaponPosition.transform.position;
