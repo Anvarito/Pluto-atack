@@ -1,12 +1,14 @@
 using System;
 using Creatures;
 using UnityEngine;
+using Weapons;
 
 namespace Controllers
 {
 	public class MainCharacterController
 	{
 		private readonly MainCharacter _character;
+		public Weapon WeaponNearBy;
 
 		public MainCharacterController(MainCharacter character)
 		{
@@ -23,12 +25,14 @@ namespace Controllers
 			var movement = new Vector2();
 			if (Input.GetKey(KeyCode.A))
 			{
-				movement.x = -1f;
+				if (!_character.collisionDetector.IsFrontCollision(Vector2.left))
+					movement.x = -1f;
 			}
 
 			if (Input.GetKey(KeyCode.D))
 			{
-				movement.x = 1f;
+				if (!_character.collisionDetector.IsFrontCollision(Vector2.right))
+					movement.x = 1f;
 			}
 
 			_character.Move(movement);
@@ -38,6 +42,14 @@ namespace Controllers
 			{
 				_character.Jump();
 				_character.State = "Jumping";
+			}
+
+			if (Input.GetKey(KeyCode.R))
+			{
+				if (WeaponNearBy != null)
+				{
+					_character.TakeWeapon(WeaponNearBy);
+				}
 			}
 		}
 	}

@@ -9,13 +9,11 @@ namespace Creatures
 		public float moveSpeed;
 		public CollisionDetector collisionDetector;
 
-		public Rigidbody2D Body;
-		public Animator Animator;
+		internal Rigidbody2D Body;
+		internal Animator Animator;
 		protected SpriteRenderer SpriteRenderer;
 		protected string CurrentAnimation;
 		protected Vector2 OriginalPosition;
-
-		protected bool isFacingRight = true;
 
 		public void TakeDamage(int damage)
 		{
@@ -35,26 +33,6 @@ namespace Creatures
 			Animator = GetComponent<Animator>();
 			SpriteRenderer = GetComponent<SpriteRenderer>();
 			OriginalPosition = transform.position;
-		}
-
-		private void Flip()
-		{
-			isFacingRight = !isFacingRight;
-			var newScale = gameObject.transform.localScale;
-			newScale.x *= -1;
-			gameObject.transform.localScale = newScale;
-		}
-
-		protected void TurnRight()
-		{
-			if (isFacingRight) return;
-			Flip();
-		}
-
-		protected void TurnLeft()
-		{
-			if (!isFacingRight) return;
-			Flip();
 		}
 	}
 }

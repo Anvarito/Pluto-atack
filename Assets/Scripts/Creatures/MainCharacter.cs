@@ -1,4 +1,5 @@
 using Controllers;
+using Extensions;
 using UnityEngine;
 using Weapons;
 
@@ -6,6 +7,7 @@ namespace Creatures
 {
 	public class MainCharacter : Creature
 	{
+		public Transform weaponPosition;
 		public Weapon weapon;
 		public float jumpForce = 1f;
 
@@ -27,10 +29,10 @@ namespace Creatures
 
 		public override void Move(Vector2 movement)
 		{
-			if (movement.x > 0 && !isFacingRight)
-				TurnRight();
-			if (movement.x < 0 && isFacingRight)
-				TurnLeft();
+			if (movement.x > 0 && !this.IsFacingRight())
+				this.TurnRight();
+			if (movement.x < 0 && this.IsFacingRight())
+				this.TurnLeft();
 
 			Body.velocity = new Vector2(movement.x * moveSpeed, Body.velocity.y);
 		}
@@ -43,12 +45,59 @@ namespace Creatures
 
 		public void Attack()
 		{
-			weapon.Fire();
+			if (weapon != null)
+				weapon.Fire();
+			else
+				MeleeAttack();
+		}
+
+		public void MeleeAttack()
+		{
+			print("I have no gun!!!");
 		}
 
 		protected override void Die()
 		{
 			transform.position = OriginalPosition;
+		}
+
+		internal void TakeWeapon(Weapon newWeapon)
+		{
+			ThrowWeapon();
+
+			weapon = newWeapon;
+
+			if (weapon.IsFacingRight() != this.IsFacingRight())
+			{
+				weapon.Flip();
+			}
+			weapon.transform.lossyScale.Set(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
+			newWeapon.transform.SetParent(transform);
+			weapon.transform.position = weaponPosition.transform.position;
+		}
+
+		public void ThrowWeapon()
+		{
+			if (weapon == null) return;
+			weapon.transform.SetParent(transform.parent);
+			weapon = null;
+		}
+
+		private void FindWeapon(Weapon newWeapon)
+		{
+			CharacterController.WeaponNearBy = newWeapon;
+		}
+
+		private void OnTriggerEnter2D(Collider2D other)
+		{
+			switch (other.gameObject.tag)
+			{
+				case "Weapon":
+				{
+					FindWeapon(other.gameObject.GetComponent<Weapon>());
+					break;
+				}
+			}
 		}
 	}
 }
