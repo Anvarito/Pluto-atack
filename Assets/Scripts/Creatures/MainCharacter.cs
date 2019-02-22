@@ -1,5 +1,5 @@
-using System;
 using Controllers;
+using Extensions;
 using UnityEngine;
 using Weapons;
 
@@ -29,10 +29,10 @@ namespace Creatures
 
 		public override void Move(Vector2 movement)
 		{
-			if (movement.x > 0 && !isFacingRight)
-				TurnRight();
-			if (movement.x < 0 && isFacingRight)
-				TurnLeft();
+			if (movement.x > 0 && !this.IsFacingRight())
+				this.TurnRight();
+			if (movement.x < 0 && this.IsFacingRight())
+				this.TurnLeft();
 
 			Body.velocity = new Vector2(movement.x * moveSpeed, Body.velocity.y);
 		}
