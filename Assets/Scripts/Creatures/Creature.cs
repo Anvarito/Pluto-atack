@@ -21,6 +21,9 @@ namespace Creatures
 			if (health <= 0) Die();
 		}
 
+		/// <summary>
+		/// Умереть
+		/// </summary>
 		protected abstract void Die();
 
 		public abstract void Move(Vector2 movement);

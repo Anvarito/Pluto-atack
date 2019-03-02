@@ -13,6 +13,7 @@ TagManager:
   - meleeEnemy
   - meleeEnemySpawner
   - shootingEnemySpawner
+  - Weapon
   layers:
   - Default
   - TransparentFX

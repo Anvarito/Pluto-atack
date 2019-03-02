@@ -4,7 +4,7 @@ namespace Weapons
 {
 	public abstract class Weapon : MonoBehaviour
 	{
-		private Animator animator;
+		private Animator _animator;
 
 		public Transform bulletSpawnPosition;
 		private Collider2D _collider;
@@ -14,7 +14,7 @@ namespace Weapons
 		{
 			tag = "Weapon";
 			gameObject.layer = 2;
-			animator = GetComponent<Animator>();
+			_animator = GetComponent<Animator>();
 
 			_collider = gameObject.AddComponent<CapsuleCollider2D>();
 			_collider.isTrigger = true;
@@ -22,7 +22,7 @@ namespace Weapons
 
 		public void Fire()
 		{
-			animator.Play("Fire");
+			_animator.Play("Fire");
 		}
 
 		public abstract void Shoot();
