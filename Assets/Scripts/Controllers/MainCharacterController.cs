@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Creatures;
 using UnityEngine;
 using Weapons;
@@ -10,47 +12,72 @@ namespace Controllers
 		private readonly MainCharacter _character;
 		public Weapon WeaponNearBy;
 
+		private readonly IDictionary<KeyCode, Action> _handlers;
+
+		/// <summary>
+		/// Контроллер управления персонажем
+		/// </summary>
+		/// <param name="character">Персонаж</param>
 		public MainCharacterController(MainCharacter character)
 		{
 			_character = character;
+			_handlers = new Dictionary<KeyCode, Action>
+			{
+				{KeyCode.F, _character.Attack},
+				{KeyCode.R, TakeWeaponHandler},
+				{KeyCode.Space, JumpHandler},
+				{KeyCode.A, MoveLeftHandler},
+				{KeyCode.D, MoveRightHandler}
+			};
 		}
 
 		public void Update()
 		{
-			if (Input.GetKey(KeyCode.F))
+			Reset();
+
+			_handlers.Keys.ToList().ForEach(key =>
 			{
-				_character.Attack();
+				if (Input.GetKey(key))
+					_handlers[key]();
+			});
+		}
+
+		private void TakeWeaponHandler()
+		{
+			if (WeaponNearBy == null) return;
+			_character.TakeWeapon(WeaponNearBy);
+		}
+
+		private void JumpHandler()
+		{
+			if (!_character.collisionDetector.IsOnGroundCollision()) return;
+			_character.Jump();
+			_character.State = "Jumping";
+		}
+
+		private void MoveLeftHandler()
+		{
+			if (_character.collisionDetector.IsFrontCollision(Vector2.left))
+			{
+				_character.State = "Idle";
+				return;
 			}
 
-			var movement = new Vector2();
-			if (Input.GetKey(KeyCode.A))
-			{
-				if (!_character.collisionDetector.IsFrontCollision(Vector2.left))
-					movement.x = -1f;
-			}
+			_character.Move(Vector2.left);
+			_character.State = "Running";
+		}
 
-			if (Input.GetKey(KeyCode.D))
-			{
-				if (!_character.collisionDetector.IsFrontCollision(Vector2.right))
-					movement.x = 1f;
-			}
+		private void MoveRightHandler()
+		{
+			if (_character.collisionDetector.IsFrontCollision(Vector2.right)) return;
+			_character.Move(Vector2.right);
+			_character.State = "Running";
+		}
 
-			_character.Move(movement);
-			_character.State = Math.Abs(movement.x) > 0 ? "Running" : "Idle";
-
-			if (Input.GetButton("Jump") && _character.collisionDetector.IsOnGroundCollision())
-			{
-				_character.Jump();
-				_character.State = "Jumping";
-			}
-
-			if (Input.GetKey(KeyCode.R))
-			{
-				if (WeaponNearBy != null)
-				{
-					_character.TakeWeapon(WeaponNearBy);
-				}
-			}
+		private void Reset()
+		{
+			_character.Move(new Vector2());
+			_character.State = "Idle";
 		}
 	}
 }
