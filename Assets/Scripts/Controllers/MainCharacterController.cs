@@ -24,10 +24,10 @@ namespace Controllers
 			_handlers = new Dictionary<KeyCode, Action>
 			{
 				{KeyCode.F, _character.Attack},
-				{KeyCode.R, TakeWeaponHandler},
-				{KeyCode.Space, JumpHandler},
-				{KeyCode.A, MoveLeftHandler},
-				{KeyCode.D, MoveRightHandler}
+				{KeyCode.R, TakeWeaponButtonPressed},
+				{KeyCode.Space, JumpButtonPressed},
+				{KeyCode.A, MoveLeftButtonPressed},
+				{KeyCode.D, MoveRightButtonPressed}
 			};
 		}
 
@@ -42,20 +42,20 @@ namespace Controllers
 			});
 		}
 
-		private void TakeWeaponHandler()
+		private void TakeWeaponButtonPressed()
 		{
 			if (WeaponNearBy == null) return;
 			_character.TakeWeapon(WeaponNearBy);
 		}
 
-		private void JumpHandler()
+		private void JumpButtonPressed()
 		{
 			if (!_character.collisionDetector.IsOnGroundCollision()) return;
 			_character.Jump();
 			_character.State = "Jumping";
 		}
 
-		private void MoveLeftHandler()
+		private void MoveLeftButtonPressed()
 		{
 			if (_character.collisionDetector.IsFrontCollision(Vector2.left))
 			{
@@ -67,7 +67,7 @@ namespace Controllers
 			_character.State = "Running";
 		}
 
-		private void MoveRightHandler()
+		private void MoveRightButtonPressed()
 		{
 			if (_character.collisionDetector.IsFrontCollision(Vector2.right)) return;
 			_character.Move(Vector2.right);
