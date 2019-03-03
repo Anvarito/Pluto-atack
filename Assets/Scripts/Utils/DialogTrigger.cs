@@ -20,6 +20,8 @@ namespace Utils
 
 		private void Start()
 		{
+			//TODO вынести в ENUM
+			gameObject.layer = 2;
 			collider2d = gameObject.AddComponent<CircleCollider2D>();
 			collider2d.isTrigger = true;
 			collider2d.radius = radius;

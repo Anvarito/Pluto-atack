@@ -1,0 +1,15 @@
+{
+  "Items": [
+    {
+      "ru": "Второй диалог",
+      "en": "Dialogs are working",
+      "character": "main"
+    },
+    {
+      "ru": "ЕБать копать",
+      "en": "Fucking finally!",
+      "character": "main",
+      "rightSide": "true"
+    }
+  ]
+}
