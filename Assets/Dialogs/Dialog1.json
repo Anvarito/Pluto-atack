@@ -1,16 +1,20 @@
 {
-  "lines": [
+  "Items": [
     {
-      "position": "left",
-      "avatar": "default",
-      "ru": "Добрый вечер",
-      "en": "Cyka blyat"
+      "ru": "Диалоги работают",
+      "en": "Dialogs are working",
+      "character": "main"
     },
     {
-      "position": "left",
-      "avatar": "default",
-      "ru": "Не хотите ли чаю?",
-      "en": "Would you like to drink some vodka?"
+      "ru": "Наконец-то блять",
+      "en": "Fucking finally!",
+      "character": "main",
+      "rightSide": "true"
+    },{
+      "ru": "Ебушки воробушки",
+      "en": "Fucking finally!",
+      "character": "main",
+      "rightSide": "true"
     }
   ]
 }

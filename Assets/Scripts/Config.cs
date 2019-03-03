@@ -10,5 +10,5 @@ public static class Config
 	/// <summary>
 	/// Язык игры
 	/// </summary>
-	public static Language Language = Language.Russian;
+	public static Language Language => Language.Russian;
 }

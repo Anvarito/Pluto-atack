@@ -123,6 +123,7 @@
     <Compile Include="Assets\Scripts\Creatures\Creature.cs" />
     <Compile Include="Assets\Scripts\Creatures\MainCharacter.cs" />
     <Compile Include="Assets\Scripts\DialogSystem\DialogLauncher.cs" />
+    <Compile Include="Assets\Scripts\DialogSystem\DialogLine.cs" />
     <Compile Include="Assets\Scripts\Enemys\Ai_Enemy.cs" />
     <Compile Include="Assets\Scripts\Enemys\Death.cs" />
     <Compile Include="Assets\Scripts\Enemys\MeleeEnemy.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Assets\Scripts\Utils\CollisionDetector.cs" />
     <Compile Include="Assets\Scripts\Utils\DialogTrigger.cs" />
     <Compile Include="Assets\Scripts\Utils\ITriggerable.cs" />
+    <Compile Include="Assets\Scripts\Utils\JsonHelper.cs" />
     <Compile Include="Assets\Scripts\Utils\JsonReader.cs" />
     <Compile Include="Assets\Scripts\Weapons\MachineGun.cs" />
     <Compile Include="Assets\Scripts\Weapons\RailGun.cs" />

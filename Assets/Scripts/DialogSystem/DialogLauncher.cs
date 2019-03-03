@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Ui;
 using UnityEngine;
+using Utils;
 
 namespace DialogSystem
 {
@@ -8,16 +9,9 @@ namespace DialogSystem
 	{
 		private static UiDialog _dialog;
 
-		
-
-		static DialogLauncher()
-		{
-			
-		}
-
 		public static void StartNewDialog(string path)
 		{
-			var lines = GetLines();
+			var lines = JsonReader.ReadDialogFromFile(path);
 
 			if (_dialog == null)
 			{
@@ -25,16 +19,6 @@ namespace DialogSystem
 			}
 
 			_dialog.Start(lines);
-		}
-
-		private static List<string> GetLines()
-		{
-			return new List<string>()
-			{
-				"Ебать какая пиздатая пушка",
-				"Ща начну во всех шмалять",
-				"Пиздец, держите меня семеро"
-			};
 		}
 	}
 }
